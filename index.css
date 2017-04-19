@@ -1,0 +1,23 @@
+body {
+	background-color: #E8E8E8;
+}
+label {
+	font-weight: normal;
+}
+.form-inline {
+	padding-left: 10px;
+}
+.form-control.inp-sm {
+	width: 75px;
+	margin-right: 10px;
+}
+.form-control.inp-md {
+	width: 100px;
+	margin-right: 10px;
+}
+#calc-header {
+	margin-bottom: 10px;
+}
+#error-output {
+	display: none;
+}
