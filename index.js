@@ -26,7 +26,10 @@ $(document).ready(function(){
         		3803050,4803050
         	];
         }
-        var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - $("#current-exp").val();
+        
+        console.log(exp_table[parseInt($("#target-from").val()) + 1] - exp_table[parseInt($("#target-from").val())] - parseInt($("#next-level").val()));
+
+        var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()];
         var bonus_exp = $("#bonus-exp").val();
         var angel_per_exp = 100;
         var arch_per_exp = 500;
@@ -39,16 +42,6 @@ $(document).ready(function(){
         $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
         $("#total-exp").val(total_exp);
 
-        if(total_exp < 0){
-            alert("You can't downgrade weapons/characters.")
-            $("#target-from").val(1);
-            $("#target-to").val(40);
-            $("#total_exp").val(6490);
-            $("#angel").val(59);
-            $("#archangel").val(12);
-            $("#current-exp").val(0);
-            $("#bonus-exp").val(0);
-        }
     });
     $(".t-inp").on('blur',function(){
     	var max_level = 150;
@@ -58,13 +51,12 @@ $(document).ready(function(){
     	}
     	if($("#target-to").val() > max_level || $("#target-from").val() > max_level || $("#target-to").val() < 1 || $("#target-from").val() < 1){
     		alert("Please only input 1 to " + String(max_level));
-    		$("#target-from").val(1);
-            $("#target-to").val(40);
-            $("#total_exp").val(6490);
-            $("#angel").val(59);
-            $("#archangel").val(12);
-            $("#current-exp").val(0);
-            $("#bonus-exp").val(0);
     	}
+        if($("#total-exp").val() < 0){
+            $("#total-exp").val("");
+            $("#angel").val("");
+            $("#archangel").val("");
+            alert("You can't downgrade weapons/characters.")
+        }
     });
 });
