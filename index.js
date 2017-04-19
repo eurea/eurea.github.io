@@ -2,8 +2,8 @@ $(document).ready(function(){
     $(".trigger").on('input click',function(){
     	var exp_table = []
     	var max_level = 150;
-    	if($("#bonus-exp").val() < 1){
-    		$("#bonus-exp").val(1);
+    	if($("#bonus-exp").val() < 0){
+    		$("#bonus-exp").val(0);
     	}
         if($("#rd-weapon").is(':checked')){
         	exp_table = [
@@ -30,7 +30,19 @@ $(document).ready(function(){
         var bonus_exp = $("#bonus-exp").val();
         var angel_per_exp = 100;
         var arch_per_exp = 500;
-        if ($("#cbBonus").is(':checked')){
+
+        if(total_exp < 0){
+            alert("You can't downgrade weapons/characters.")
+            $("#target-from").val(1);
+            $("#target-to").val(40);
+            $("#total_exp").val(6490);
+            $("#angel").val(59);
+            $("#archangel").val(12);
+            $("#current-exp").val(0);
+            $("#bonus-exp").val(0);
+        }
+
+        if($("#cbBonus").is(':checked')){
         	angel_per_exp = 150;
         	arch_per_exp = 750
         }
@@ -46,8 +58,13 @@ $(document).ready(function(){
     	}
     	if($("#target-to").val() > max_level || $("#target-from").val() > max_level || $("#target-to").val() < 1 || $("#target-from").val() < 1){
     		alert("Please only input 1 to " + String(max_level));
-    		$("#target-to").val(40);
     		$("#target-from").val(1);
+            $("#target-to").val(40);
+            $("#total_exp").val(6490);
+            $("#angel").val(59);
+            $("#archangel").val(12);
+            $("#current-exp").val(0);
+            $("#bonus-exp").val(0);
     	}
     });
 });
