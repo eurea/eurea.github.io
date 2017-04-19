@@ -31,6 +31,14 @@ $(document).ready(function(){
         var angel_per_exp = 100;
         var arch_per_exp = 500;
 
+        if($("#cbBonus").is(':checked')){
+        	angel_per_exp = 150;
+        	arch_per_exp = 750
+        }
+        $("#angel").val(Math.ceil(total_exp / (angel_per_exp + Math.floor(angel_per_exp*(bonus_exp/100)))));
+        $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
+        $("#total-exp").val(total_exp);
+
         if(total_exp < 0){
             alert("You can't downgrade weapons/characters.")
             $("#target-from").val(1);
@@ -41,14 +49,6 @@ $(document).ready(function(){
             $("#current-exp").val(0);
             $("#bonus-exp").val(0);
         }
-
-        if($("#cbBonus").is(':checked')){
-        	angel_per_exp = 150;
-        	arch_per_exp = 750
-        }
-        $("#angel").val(Math.ceil(total_exp / (angel_per_exp + Math.floor(angel_per_exp*(bonus_exp/100)))));
-        $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
-        $("#total-exp").val(total_exp);
     });
     $(".t-inp").on('blur',function(){
     	var max_level = 150;
