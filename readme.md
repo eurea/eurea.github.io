@@ -1,5 +1,5 @@
 # GBF Experience Calculator
- ** A simple calculator for calculating how much fodder you need.**
+ **A simple calculator for calculating how much fodder you need.**
 
 ### Usage
 - Input the current level of your weapon/summon/character and your target level to see the total exp needed.
