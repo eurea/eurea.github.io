@@ -1,5 +1,10 @@
 $(document).ready(function(){
-    $(".trigger").on('input click',function(){
+    $("#bonus-info").popover({
+        content:"Usually comes from Wonders and Elemental Skills.",
+        trigger:"hover",
+        placement:"bottom",
+    });
+    $(".trigger").on('input',function(){
     	var exp_table = []
     	var max_level = 150;
     	if($("#bonus-exp").val() < 0){
@@ -26,41 +31,38 @@ $(document).ready(function(){
         		3803050,4803050
         	];
         }
+        // main computation
         var current_exp = 0;
         if(parseInt($("#next-level").val()) > 0){
             current_exp = (exp_table[parseInt($("#target-from").val()) + 1] - exp_table[parseInt($("#target-from").val())]) - parseInt($("#next-level").val());
-            console.log(current_exp);
         }
-        
+        if ($("#target-from").val() < max_level && $("#target-to").val() < max_level){
+            var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - current_exp;
+            var bonus_exp = $("#bonus-exp").val();
+            var angel_per_exp = 100;
+            var arch_per_exp = 500;
 
-        var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - current_exp;
-        var bonus_exp = $("#bonus-exp").val();
-        var angel_per_exp = 100;
-        var arch_per_exp = 500;
+            if($("#cbBonus").is(':checked')){
+                angel_per_exp = 150;
+                arch_per_exp = 750
+            }
+            $("#angel").val(Math.ceil(total_exp / (angel_per_exp + Math.floor(angel_per_exp*(bonus_exp/100)))));
+            $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
+            $("#total-exp").val(total_exp);
+        }        
 
-        if($("#cbBonus").is(':checked')){
-        	angel_per_exp = 150;
-        	arch_per_exp = 750
-        }
-        $("#angel").val(Math.ceil(total_exp / (angel_per_exp + Math.floor(angel_per_exp*(bonus_exp/100)))));
-        $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
-        $("#total-exp").val(total_exp);
-
-    });
-    $(".t-inp").on('blur',function(){
-    	var max_level = 150;
-    	var default_val = 1;
-    	if($("#rd-char").is(':checked')){
-    		max_level = 100;
-    	}
-    	if($("#target-to").val() > max_level || $("#target-from").val() > max_level || $("#target-to").val() < 1 || $("#target-from").val() < 1){
-    		alert("Please only input 1 to " + String(max_level));
-    	}
+        // error popups
         if($("#total-exp").val() < 0){
-            $("#total-exp").val("");
-            $("#angel").val("");
-            $("#archangel").val("");
-            alert("You can't downgrade weapons/characters.")
+            $(this).popover({
+                title:"Error",
+                content:"You can't downgrade weapons/summons/characters.",
+                trigger:"manual",
+                placement:"bottom",
+            });
+            $(this).popover("show");
+        }
+        else{
+            $(this).popover("hide");
         }
     });
 });

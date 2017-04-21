@@ -1,5 +1,6 @@
 body {
-	background-color: #E8E8E8;
+	background-color: #563200;
+	color: #ffffff;
 }
 label {
 	font-weight: normal;
@@ -20,4 +21,14 @@ label {
 }
 #error-output {
 	display: none;
+}
+
+/* Popover CSS */
+.popover-title{
+	background-color: #ff3333;
+	color: #ffffff;
+}
+.popover-content{
+	background-color: #D5A86A;
+	color: #ffffff;
 }
