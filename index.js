@@ -62,7 +62,7 @@ $(document).ready(function(){
             $(this).popover("show");
         }
         else{
-            $(this).popover("hide");
+            $(".trigger").popover("hide");
         }
     });
 });
