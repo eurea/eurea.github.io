@@ -4,7 +4,7 @@ $(document).ready(function(){
         trigger:"hover",
         placement:"bottom",
     });
-    $(".trigger").on('input',function(){
+    $(".trigger").on('input click',function(){
     	var exp_table = []
     	var max_level = 150;
     	if($("#bonus-exp").val() < 0){
