@@ -55,16 +55,12 @@ $(document).ready(function(){
 
         // error popups
         if($("#total-exp").val() < 0){
-            $(this).popover({
-                title:"Error",
-                content:"You can't downgrade weapons/summons/characters.",
-                trigger:"manual",
-                placement:"bottom",
-            });
-            $(this).popover("show");
+            $("#error-content").html("You cannot downgrade weapons/summons/characters.");
+            $("#error-message").show();
         }
         else{
-            $(".trigger").popover("hide");
+            $("#error-message").hide();
+            $("#error-content").html("");
         }
     });
 });

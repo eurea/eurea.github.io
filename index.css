@@ -1,6 +1,6 @@
 body {
-	background-color: #563200;
-	color: #ffffff;
+	background-image: url("http://granbluefantasy.jp/en/common/images/bg_static.jpg");
+	color: #000000;
 }
 label {
 	font-weight: normal;
@@ -22,13 +22,15 @@ label {
 #error-output {
 	display: none;
 }
-
+#error-message {
+	display: none;
+}
 /* Popover CSS */
 .popover-title{
 	background-color: #ff3333;
 	color: #ffffff;
 }
 .popover-content{
-	background-color: #D5A86A;
-	color: #ffffff;
+	background-color: #E8E8E8;
+	color: #000000;
 }
