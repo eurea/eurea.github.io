@@ -36,7 +36,9 @@ $(document).ready(function(){
         if(parseInt($("#next-level").val()) > 0){
             current_exp = (exp_table[parseInt($("#target-from").val()) + 1] - exp_table[parseInt($("#target-from").val())]) - parseInt($("#next-level").val());
         }
-        if ($("#target-from").val() < max_level && $("#target-to").val() < max_level){
+        console.log("TO:" + $("#target-to").val());
+        console.log("EXP TO:" + exp_table[$("#target-to").val()]);
+        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level){
             var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - current_exp;
             var bonus_exp = $("#bonus-exp").val();
             var angel_per_exp = 100;
