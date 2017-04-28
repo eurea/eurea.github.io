@@ -31,6 +31,12 @@ $(document).ready(function(){
         		3803050,4803050
         	];
         }
+        if($("#target-from").val() > max_level) {
+            $("#target-from").val(1);
+        }
+        if($("#target-to").val() > max_level) {
+            $("#target-to").val(40);
+        }
         // main computation
         var current_exp = 0;
         if(parseInt($("#next-level").val()) > 0){

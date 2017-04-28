@@ -5,6 +5,9 @@ body {
 label {
 	font-weight: normal;
 }
+.form-group { 
+	display: inline-block; 
+}
 .form-inline {
 	padding-left: 10px;
 }
