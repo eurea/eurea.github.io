@@ -12,4 +12,4 @@
  
  ### Special Thanks
  -  [Visco](https://github.com/IAmVisco) for testing
- - Dark_zarich for helping with the mobile view
+ - [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view
