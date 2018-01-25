@@ -1,73 +1,110 @@
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no user-scalable=no"> 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="index.css">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<title>GBF Exp Calculator</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no user-scalable=no"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="index.css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<title>GBF Exp and Spark Calculator</title>
 	</head>
 <body>
 	<!-- <div class="alert alert-warning">
 		<strong>Currently in development.</strong> Basic functions are working fine.
 	</div> -->
 	<div class="container" style="background-color:#E8E8E8">
-		<div class="row">
+<!-- 		<div class="row">
 			<div class="col-xs-12" style="background-color:#0083E7;" id="calc-header">
 				<h3>GBF Experience Calculator</h3>
 			</div>
+		</div> -->
+		<div class="menu">
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#exp">Exp Calc</a></li>
+				<li><a data-toggle="tab" href="#spark">Spark Calc</a></li>
+			</ul>
 		</div>
-		<form class="form-inline">
-			<div class="alert alert-danger" id="error-output"></div>
-			<div class="form-group">
-				<label>From:</label>
-				<input type="number" class="form-control inp-sm trigger t-inp" id="target-from" min="1" max="149" value="1">
+		<div class="tab-content">
+			<div id="exp" class="tab-pane fade in active">
+				<form class="form-inline" style="padding-top: 10px">
+					<div class="alert alert-danger" id="error-output"></div>
+					<div class="form-group">
+						<label>From:</label>
+						<input type="number" class="form-control inp-sm trigger t-inp" id="target-from" min="1" max="149" value="1">
+					</div>
+					<div class="form-group">
+						<label>To:</label>
+						<input type="number" class="form-control inp-sm trigger t-inp" id="target-to" min="2" max="150" value="40">
+					</div>
+					<div class="form-group">
+						<label>To next level:</label>
+						<input type="number" class="form-control inp-md trigger" id="next-level" min="0" max="999999" value="0" step="100">
+					</div>
+					<div class="form-group">
+						<i class="fa fa-info-circle" id="bonus-info"></i>
+						<label for="bonus-exp">Bonus Exp (%):</label>
+						<input type="number" class="form-control inp-sm trigger" id="bonus-exp" min="0" value="10">
+					</div>
+				</form>
+				<form class="form-inline">
+					<label class="radio-inline">
+					 	<input type="radio" name="rdType" class="trigger" id="rd-weapon" value="weapon" checked> Weapon/Summon
+					</label>
+					<label class="radio-inline">
+					 	<input type="radio" name="rdType" class="trigger" id="rd-char" value="char"> Character
+					</label>
+				</form>
+				<form class="form-inline">
+					<label class="checkbox-inline">
+					 	<input type="checkbox" class="trigger" id="cbBonus" value="bonus"> Same Type
+					</label>
+				</form>
+				<form class="form-inline">
+					<div class="form-group">
+						<label> Total Exp: </label>
+						<input class="form-control inp-md" type="number" id="total-exp" value="6490" readonly>
+					</div>
+					<div class="form-group">
+						<label> Angel Items: </label>
+						<input class="form-control inp-md" type="number" id="angel" value="59" readonly>
+					</div>
+					<div class="form-group">
+						<label> Archangel Items: </label>
+						<input class="form-control inp-md" type="number" id="archangel" value="12" readonly>
+					</div>
+				</form>		
+				<div class="alert alert-danger" id="error-message">
+					<i class="fa fa-warning"></i><strong class="error-title"> Error:</strong> <label id="error-content"></label>
+				</div>
 			</div>
-			<div class="form-group">
-				<label>To:</label>
-				<input type="number" class="form-control inp-sm trigger t-inp" id="target-to" min="2" max="150" value="40">
+			<div id="spark" class="tab-pane fade">
+				<form class="form-inline" style="padding-top: 10px">
+					<!-- <div class="alert alert-danger" id="error-output"></div> -->
+					<div class="form-group">
+						<label>Crystals:</label>
+						<input type="number" class="form-control inp-md t-inp trigger-crystal" id="crystals" min="0" value="0" step="100">
+					</div>
+					<div class="form-group">
+						<label>Single Tickets:</label>
+						<input type="number" class="form-control inp-md t-inp trigger-crystal" id="singles" min="0" value="0">
+					</div>
+					<div class="form-group">
+						<label>10x Tickets:</label>
+						<input type="number" class="form-control inp-md trigger-crystal" id="tens" min="0" value="0">
+					</div>
+				</form>
+				<form class="form-inline">
+					<div class="form-group">
+						<label>Total rolls:</label>
+						<input class="form-control inp-md" type="number" id="total-rolls" value="0" readonly>
+					</div>
+					<div class="form-group">
+						<label>Percentage:</label>					
+						<input class="form-control inp-md" type="text" id="percentage" value="0%" readonly>
+					</div>
+				</form>
 			</div>
-			<div class="form-group">
-				<label>To next level:</label>
-				<input type="number" class="form-control inp-md trigger" id="next-level" min="0" max="999999" value="0" step="100">
-			</div>
-			<div class="form-group">
-				<i class="fa fa-info-circle" id="bonus-info"></i>
-				<label for="bonus-exp">Bonus Exp (%):</label>
-				<input type="number" class="form-control inp-sm trigger" id="bonus-exp" min="0" value="10">
-			</div>
-		</form>
-		<form class="form-inline">
-			<label class="radio-inline">
-			 	<input type="radio" name="rdType" class="trigger" id="rd-weapon" value="weapon" checked> Weapon/Summon
-			</label>
-			<label class="radio-inline">
-			 	<input type="radio" name="rdType" class="trigger" id="rd-char" value="char"> Character
-			</label>
-		</form>
-		<form class="form-inline">
-			<label class="checkbox-inline">
-			 	<input type="checkbox" class="trigger" id="cbBonus" value="bonus"> Same Type
-			</label>
-		</form>
-		<form class="form-inline">
-			<div class="form-group">
-				<label> Total Exp: </label>
-				<input class="form-control inp-md" type="number" id="total-exp" value="6490" readonly>
-			</div>
-			<div class="form-group">
-				<label> Angel Items: </label>
-				<input class="form-control inp-md" type="number" id="angel" value="59" readonly>
-			</div>
-			<div class="form-group">
-				<label> Archangel Items: </label>
-				<input class="form-control inp-md" type="number" id="archangel" value="12" readonly>
-			</div>
-		</form>		
-		<div class="alert alert-danger" id="error-message">
-			<i class="fa fa-warning"></i><strong class="error-title"> Error:</strong> <label id="error-content"></label>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
