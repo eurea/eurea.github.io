@@ -5,6 +5,10 @@ body {
 label {
 	font-weight: normal;
 }
+.container {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 .form-group { 
 	display: inline-block; 
 }
@@ -14,13 +18,12 @@ label {
 .form-control.inp-sm {
 	width: 75px;
 	margin-right: 10px;
+	border-radius: 0;
 }
 .form-control.inp-md {
 	width: 100px;
 	margin-right: 10px;
-}
-#calc-header {
-	margin-bottom: 10px;
+	border-radius: 0;
 }
 #error-output {
 	display: none;
@@ -36,4 +39,39 @@ label {
 .popover-content{
 	background-color: #E8E8E8;
 	color: #000000;
+}
+/* Material styled tabs */
+.nav-tabs { 
+	border-bottom: 2px solid #DDD; 
+}
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a:hover { 
+	color: #000;
+	border-radius: 0;
+ 	border-width: 0; 
+ }
+.nav-tabs > li > a { 
+	border: none; 
+	color: #000; 
+}
+.nav-tabs > li.active > a, 
+.nav-tabs > li > a:hover { 
+	border-radius: 0;
+	color:#000;
+}
+.nav-tabs > li > a::after { 
+	content: ""; 
+	background: #005B9F; 
+	height: 2px; 
+	position: absolute;
+	width: 100%; 
+	left: 0px; 
+	bottom: -1px; 
+	transition: all 250ms ease 0s; 
+	transform: scale(0); 
+}
+.nav-tabs > li.active > a::after, 
+.nav-tabs > li:hover > a::after { 
+	transform: scale(1); 
 }

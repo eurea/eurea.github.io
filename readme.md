@@ -1,5 +1,6 @@
 # GBF Experience Calculator
  **A simple calculator for calculating how much fodder you need.**
+ **Now with spark counter!**
 
 ### Usage
 - Input the current level of your weapon/summon/character and your target level to see the total exp needed.
@@ -8,8 +9,8 @@
 
 ### Known issues
  - Console logging of NaN errors. Probably from computation of null values.
- - Crappy UI
  
  ### Special Thanks
- -  [Visco](https://github.com/IAmVisco) for testing
+ - [Visco](https://github.com/IAmVisco) for testing
  - [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view
+ - [pradeep330](https://bootsnipp.com/snippets/featured/material-design-tab-style) for material design tabs
