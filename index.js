@@ -104,5 +104,5 @@ $(document).ready(function(){
         }
     });
     
-    $(".trigger-crystal").on('input click', calcRolls());
+    $(".trigger-crystal").on('input click', calcRolls);
 });
