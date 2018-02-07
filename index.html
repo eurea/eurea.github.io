@@ -25,7 +25,7 @@
 	-->
 			<div class="menu"> <!-- Nav bar -->
 				<ul class="nav nav-tabs" style="background-color:#0288D1">
-					<li class="active"><a data-toggle="tab" href="#exp">Exp Calc</a></li>
+					<li class="active"><a data-toggle="tab" href="#exp">RP&EXP Calc</a></li>
 					<li><a data-toggle="tab" href="#spark">Spark Calc</a></li>
 				</ul>
 			</div>
@@ -47,9 +47,9 @@
 							<input type="number" class="form-control inp-md trigger" id="next-level" min="0" max="999999" value="0" step="100">
 						</div>
 						<div class="form-group">
-							<i class="fa fa-info-circle" id="bonus-info"></i>
-							<label for="bonus-exp">Bonus Exp (%):</label>
-							<input type="number" class="form-control inp-sm trigger" id="bonus-exp" min="0" value="10">
+							<i class="fa fa-info-circle rank" id="bonus-info"></i>
+							<label for="bonus-exp" class="rank">Bonus Exp (%):</label>
+							<input type="number" class="form-control inp-sm trigger rank" id="bonus-exp" min="0" value="10">
 						</div>
 					</form>
 					<form class="form-inline">
@@ -58,6 +58,9 @@
 						</label>
 						<label class="radio-inline">
 						 	<input type="radio" name="rdType" class="trigger" id="rd-char" value="char"> Character
+						</label>
+						<label class="radio-inline">
+						 	<input type="radio" name="rdType" class="trigger" id="rd-rank" value="rank"> Rank
 						</label>
 					</form>
 					<form class="form-inline">
@@ -71,12 +74,12 @@
 							<input class="form-control inp-md" type="number" id="total-exp" value="6490" readonly>
 						</div>
 						<div class="form-group">
-							<label> Angel Items: </label>
-							<input class="form-control inp-md" type="number" id="angel" value="59" readonly>
+							<label class="rank"> Angel Items: </label>
+							<input class="form-control inp-md rank" type="number" id="angel" value="59" readonly>
 						</div>
 						<div class="form-group">
-							<label> Archangel Items: </label>
-							<input class="form-control inp-md" type="number" id="archangel" value="12" readonly>
+							<label class="rank"> Archangel Items: </label>
+							<input class="form-control inp-md rank" type="number" id="archangel" value="12" readonly>
 						</div>
 					</form>		
 					<div class="alert alert-danger" id="error-message">
@@ -88,15 +91,15 @@
 					<form class="form-inline" style="padding-top: 10px">
 						<div class="form-group">
 							<label>Crystals:</label>
-							<input type="number" style="margin-left: 8px" class="form-control inp-md t-inp trigger-crystal" id="crystals" min="0" value="0" step="100">
+							<input type="number" style="margin-left: 8px" class="form-control inp-md t-inp trigger-crystal" id="crystals" min="0" step="100">
 						</div>
 						<div class="form-group">
 							<label>Single Tickets:</label>
-							<input type="number" class="form-control inp-md t-inp trigger-crystal" id="singles" min="0" value="0">
+							<input type="number" class="form-control inp-md t-inp trigger-crystal" id="singles" min="0">
 						</div>
 						<div class="form-group">
 							<label>10x Tickets:</label>
-							<input type="number" class="form-control inp-md trigger-crystal" id="tens" min="0" value="0">
+							<input type="number" class="form-control inp-md trigger-crystal" id="tens" min="0">
 						</div>
 					</form>
 					<form class="form-inline">
