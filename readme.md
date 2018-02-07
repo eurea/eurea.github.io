@@ -13,4 +13,6 @@
  ### Special Thanks
  - [Visco](https://github.com/IAmVisco) for testing
  - [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view
- - [pradeep330](https://bootsnipp.com/snippets/featured/material-design-tab-style) for material design tabs
+ ### Code used
+ - [pradeep330](https://bootsnipp.com/snippets/featured/material-design-tab-style) - Material design tabs
+ - [tholman](https://github.com/tholman/github-corners) - GitHub corner icon
