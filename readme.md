@@ -9,6 +9,7 @@
 
 ### Known issues
  - Console logging of NaN errors. Probably from computation of null values.
+ - Checkbox allignment is off.
  
  ### Special Thanks
  - [Visco](https://github.com/IAmVisco) for testing

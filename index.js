@@ -41,7 +41,7 @@ $(document).ready(function(){
     $(".trigger").on('input click',function(){
     	var exp_table = []
     	var max_level = 150;       
-        $("#cbBonus").prop('disabled', false);
+        //$("#cbBonus").prop('disabled', false);
     	if($("#bonus-exp").val() < 0){
     		$("#bonus-exp").val(0);
     	}
@@ -71,7 +71,7 @@ $(document).ready(function(){
         if($("#rd-rank").is(':checked')){
             max_level = 200;
             $('.rank').fadeOut();
-            $("#cbBonus").prop('disabled', true);
+            //$("#cbBonus").prop('disabled', true);
             exp_table = [
                  0, 0, 50, 200, 500, 900, 1500, 2200, 2900, 3800, 4900, 6500, 8000, 9600, 11500, 13500, 15600, 17800, 20100, 22950, 26500, 30450, 34450, 38900, 43850, 49350, 
                  55450, 62200, 69650, 77850, 86850, 96700, 107450, 119150, 131850, 145600, 160450, 176450, 193650, 212100, 231850, 252950, 275450, 299400, 324850, 351850, 380450, 
@@ -113,10 +113,6 @@ $(document).ready(function(){
             if( ! $("#rd-rank").is(':checked')){
                 $("#angel").val(Math.ceil(total_exp / (angel_per_exp + Math.floor(angel_per_exp*(bonus_exp/100)))));
                 $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
-            }
-            else{
-                $("#angel").val(0);
-                $("#archangel").val(0);
             }
             $("#total-exp").val(total_exp);
         }        
