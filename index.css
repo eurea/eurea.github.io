@@ -1,5 +1,5 @@
 body {
-	background-image: url("http://granbluefantasy.jp/en/common/images/bg_static.jpg");
+	background-image: url("bg.jpg");
 	color: #000000;
 }
 label {
@@ -39,6 +39,11 @@ label {
 .popover-content{
 	background-color: #E8E8E8;
 	color: #000000;
+}
+@media screen and (max-width: 760px) {
+	.mobile-margin {
+		margin-left: 0 !important;
+	}
 }
 /* Material styled tabs */
 .nav-tabs { 
