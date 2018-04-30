@@ -1,5 +1,5 @@
 body {
-	background-image: url("bg.jpg");
+	background-image: url("../img/bg.jpg");
 	color: #000000;
 }
 label {
@@ -17,13 +17,59 @@ label {
 }
 .form-control.inp-sm {
 	width: 75px;
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 	border-radius: 0;
 }
 .form-control.inp-md {
 	width: 100px;
 	margin-right: 10px;
 	border-radius: 0;
+}
+.tracker-form {
+	display: inline-block;
+	-moz-appearance:textfield;
+	text-align: center;
+}
+.tracker-form::-webkit-outer-spin-button,
+.tracker-form::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.header-label {
+	display: block;
+	margin: 10px 0;
+	text-align: center;
+}
+.material-btn {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+	line-height: 35px;
+	color: #424242;
+	font-size: 15px;
+	font-weight: 600;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: .8px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+	outline: none;
+	border: none;
+	user-select: none;
+	border-radius: 2px;
+	transition: all .3s ease-out;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.225);
+	color: #FFF;
+    background-color: #03a9f4; 
+}
+.material-btn:hover { 
+	text-decoration: none;
+	box-shadow: 0 4px 10px 0px rgba(0,0,0,0.225); 
+	background-color: #0fb2fc; 
 }
 #error-output {
 	display: none;

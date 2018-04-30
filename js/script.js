@@ -25,6 +25,31 @@ function calcRolls(){
     $("#total-rolls").val(Number(Math.floor($("#crystals").val() / 300)) + Number($("#singles").val()) + Number($("#tens").val() * 10));
     $("#percentage").val(~~(($("#total-rolls").val() / 300).toFixed(2) * 100) + "%");
 }
+
+function incrValueSSR() {
+    var value = $("#ssr").val();
+    value = isNaN(value) ? 0 : value;
+    $("#ssr").val(++value);
+}
+
+function decrValueSSR() {
+    var value = $("#ssr").val();
+    value = isNaN(value) ? 0 : value;
+    $("#ssr").val(--value); 
+}
+
+function incrValueMoons() {
+    var value = $("#moons").val();
+    value = isNaN(value) ? 0 : value;
+    $("#moons").val(++value);
+}
+
+function decrValueMoons() {
+    var value = $("#moons").val();
+    value = isNaN(value) ? 0 : value;
+    $("#moons").val(--value); 
+}
+
 $(document).ready(function(){
 
     $("#crystals").val(getCookie("crystals"));

@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no user-scalable=no"> 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		<link rel="stylesheet" href="index.css">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 		<title>GBF Exp and Spark Calculator</title>
 	</head>
 	<body>
@@ -16,13 +16,6 @@
 		</div> 
 	-->
 		<div class="container" style="background-color:#E0E0E0">
-	<!-- 	Old header
-			<div class="row">
-				<div class="col-xs-12" style="background-color:#0083E7;" id="calc-header">
-					<h3>GBF Experience Calculator</h3>
-				</div>
-			</div> 
-	-->
 			<div class="menu"> <!-- Nav bar -->
 				<ul class="nav nav-tabs" style="background-color:#0288D1">
 					<li class="active"><a data-toggle="tab" href="#exp">RP&EXP Calc</a></li>
@@ -37,11 +30,11 @@
 						<div class="alert alert-danger" id="error-output"></div>
 						<div class="form-group">
 							<label>From:</label>
-							<input type="number" class="form-control inp-sm trigger t-inp" id="target-from" min="1" max="149" value="1">
+							<input type="number" class="form-control inp-sm trigger" id="target-from" min="1" max="149" value="1">
 						</div>
 						<div class="form-group">
 							<label>To:</label>
-							<input type="number" class="form-control inp-sm trigger t-inp" id="target-to" min="2" max="150" value="40">
+							<input type="number" class="form-control inp-sm trigger" id="target-to" min="2" max="150" value="40">
 						</div>
 						<div class="form-group">
 							<label>To next level:</label>
@@ -90,11 +83,11 @@
 					<form class="form-inline" style="padding-top: 10px">
 						<div class="form-group">
 							<label>Crystals:</label>
-							<input type="number" style="margin-left: 8px" class="form-control inp-md t-inp trigger-crystal mobile-margin" id="crystals" min="0" step="100">
+							<input type="number" style="margin-left: 8px" class="form-control inp-md trigger-crystal mobile-margin" id="crystals" min="0" step="100">
 						</div>
 						<div class="form-group">
 							<label>Single Tickets:</label>
-							<input type="number" class="form-control inp-md t-inp trigger-crystal" id="singles" min="0">
+							<input type="number" class="form-control inp-md trigger-crystal" id="singles" min="0">
 						</div>
 						<div class="form-group">
 							<label>10x Tickets:</label>
@@ -118,6 +111,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="index.js"/></script>
+		<script src="js/script.js"/></script>
 	</body>
 </html>
