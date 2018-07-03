@@ -20,11 +20,13 @@
 		<title>GBF Exp and Spark Calculator</title>
 	</head>
 	<body>
-		<div class="container" style="background-color:#E0E0E0">
+		<div class="container">
 			<div class="menu"> <!-- Nav bar -->
-				<ul class="nav nav-tabs" style="background-color:#0288D1">
-					<li class="active"><a data-toggle="tab" href="#spark">Spark Calc</a></li>
-					<li><a data-toggle="tab" href="#exp">RP&amp;EXP Calc</a></li>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#spark" lang="en">Spark Calc</a></li>
+					<li class="active"><a data-toggle="tab" href="#spark" lang="jp">Spark Calc</a></li>
+					<li><a data-toggle="tab" href="#exp" lang="en">RP&amp;EXP Calc</a></li>
+					<li><a data-toggle="tab" href="#exp" lang="jp">RP&amp;EXP Calc</a></li>
 				</ul>
 			</div>
 			<a target="_blank" href="https://github.com/eurea/eurea.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#0288D1; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
@@ -32,25 +34,26 @@
 				<div id="spark" class="tab-pane fade in active">
 					<form class="form-inline" style="padding-top: 10px">
 						<div class="form-group">
-							<label>Crystals:</label>
+							<label lang="en">Crystals:</label>
+							<label lang="jp">Crystals:</label>
 							<input type="number" style="margin-left: 8px" class="form-control inp-md trigger-crystal mobile-margin" id="crystals" min="0" step="100">
 						</div>
 						<div class="form-group">
-							<label>Single Tickets:</label>
+							<label lang="en" lang="en">Single Tickets:</label>
 							<input type="number" class="form-control inp-md trigger-crystal" id="singles" min="0">
 						</div>
 						<div class="form-group">
-							<label>10x Tickets:</label>
+							<label lang="en">10x Tickets:</label>
 							<input type="number" class="form-control inp-md trigger-crystal" id="tens" min="0">
 						</div>
 					</form>
 					<form class="form-inline">
 						<div class="form-group">
-							<label>Total rolls:</label>
+							<label lang="en">Total rolls:</label>
 							<input class="form-control inp-md" type="number" id="total-rolls" value="0" readonly>
 						</div>
 						<div class="form-group">
-							<label>Percentage:</label>					
+							<label lang="en">Percentage:</label>					
 							<input class="form-control inp-md mobile-margin" style="margin-left: 14px" type="text" id="percentage" value="0%" readonly>
 						</div>
 					</form>
@@ -60,48 +63,48 @@
 					<form class="form-inline" style="padding-top: 10px">
 						<div class="alert alert-danger" id="error-output"></div>
 						<div class="form-group">
-							<label>From:</label>
+							<label lang="en">From:</label>
 							<input type="number" class="form-control inp-sm trigger" id="target-from" min="1" max="149" value="1">
 						</div>
 						<div class="form-group">
-							<label>To:</label>
+							<label lang="en">To:</label>
 							<input type="number" class="form-control inp-sm trigger" id="target-to" min="2" max="150" value="40">
 						</div>
 						<div class="form-group">
-							<label>To next level:</label>
+							<label lang="en">To next level:</label>
 							<input type="number" class="form-control inp-md trigger" id="next-level" min="0" max="999999" value="0" step="100">
 						</div>
 						<div class="form-group">
 							<i class="fa fa-info-circle rank" id="bonus-info"></i>
-							<label for="bonus-exp" class="rank">Bonus Exp (%):</label>
+							<label lang="en" for="bonus-exp" class="rank">Bonus Exp (%):</label>
 							<input type="number" class="form-control inp-sm trigger rank" id="bonus-exp" min="0" value="10">
 						</div>
 					</form>
 					<form class="form-inline">
-						<label class="radio-inline">
+						<label lang="en" class="radio-inline">
 						 	<input type="radio" name="rdType" class="trigger" id="rd-weapon" value="weapon" checked> Weapon/Summon
 						</label>
-						<label class="radio-inline mobile-margin">
+						<label lang="en" class="radio-inline mobile-margin">
 						 	<input type="radio" name="rdType" class="trigger" id="rd-char" value="char"> Character
 						</label>
-						<label class="radio-inline mobile-margin" style="margin-right: 10px">
+						<label lang="en" class="radio-inline mobile-margin" style="margin-right: 10px">
 						 	<input type="radio" name="rdType" class="trigger" id="rd-rank" value="rank"> Rank
 						</label>
-						<label class="checkbox-inline rank">
+						<label lang="en" class="checkbox-inline rank">
 						 	<input type="checkbox" class="trigger" id="cbBonus" value="bonus"> Same Type
 						</label>
 					</form>
 					<form class="form-inline">
 						<div class="form-group">
-							<label> Total Exp: </label>
+							<label lang="en"> Total Exp: </label>
 							<input class="form-control inp-md" type="number" id="total-exp" value="6490" style="padding-right: 0px" readonly>
 						</div>
 						<div class="form-group">
-							<label class="rank"> Angel Items: </label>
+							<label lang="en" class="rank"> Angel Items: </label>
 							<input class="form-control inp-md rank" type="number" id="angel" value="59" readonly>
 						</div>
 						<div class="form-group">
-							<label class="rank"> Archangel Items: </label>
+							<label lang="en" class="rank"> Archangel Items: </label>
 							<input class="form-control inp-md rank" type="number" id="archangel" value="12" readonly>
 						</div>
 					</form>		
@@ -112,7 +115,6 @@
 			</div>
 		</div>
 		<!-- Scripts -->
-
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/script.js"/></script>
 	</body>

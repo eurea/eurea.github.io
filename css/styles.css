@@ -6,9 +6,13 @@ body {
 label {
 	font-weight: normal;
 }
+[lang="jp"] {
+	display: none !important;
+}
 .container {
 	padding-left: 0px;
 	padding-right: 0px;
+	background-color: #E0E0E0;
 }
 .form-group { 
 	display: inline-block; 
@@ -48,6 +52,7 @@ label {
 /* Material styled tabs */
 .nav-tabs { 
 	border-bottom: 2px solid #DDD; 
+	background-color: #0288D1;
 }
 .nav-tabs > li.active > a, 
 .nav-tabs > li.active > a:focus, 

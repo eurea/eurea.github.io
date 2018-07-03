@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     $("#bonus-info").popover({
         content:"Usually comes from Wonders and Elemental Skills.",
         trigger:"hover",
@@ -8,11 +7,12 @@ $(document).ready(function(){
 
     $(".trigger").on('input click',function(){
     	var exp_table = []
-    	var max_level = 150;       
-        //$("#cbBonus").prop('disabled', false);
+    	var max_level = 200;       
+
     	if($("#bonus-exp").val() < 0){
     		$("#bonus-exp").val(0);
-    	}
+        }
+    	// Exp tables
         if($("#rd-weapon").is(':checked')){
             $('.rank').fadeIn();
         	exp_table = [
@@ -22,7 +22,9 @@ $(document).ready(function(){
 	        	43990,44710,46050,47410,48790,50190,51610,53050,54510,55990,57490,59010,60550,62110,63690,65290,66910,68550,70210,71890,77090,82490,88090,
 	        	93890,99890,106090,112490,119090,125890,132890,140090,147490,155090,162890,170890,179090,187490,196090,204890,213890,223190,232790,242690,
 	        	252890,263490,274490,285990,297990,310490,323590,337290,351590,366490,382090,398390,415390,433090,451590,470890,490990,511990,533990,556990,
-	        	580990,605990,631990,658990,686990,715990,745990
+	        	580990,605990,631990,658990,686990,715990,745990,775990,805990,835990,865990,895990,925990,955990,985990,1015990,1045990,1075990,1105990,1135990,
+                1165990,1195990,1225990,1255990,1285990,1315990,1345990,1375990,1405990,1435990,1465990,1495990,1525990,1555990,1585990,1615990,1645990,1675990,1705990,
+                1735990,1765990,1795990,1825990,1855990,1885990,1915990,1945990,1975990,2005990,2035990,2065990,2095990,2125990,2155990,2185990,2215990,2245990
         	];
         }
         if($("#rd-char").is(':checked')){
@@ -39,7 +41,6 @@ $(document).ready(function(){
         if($("#rd-rank").is(':checked')){
             max_level = 200;
             $('.rank').fadeOut();
-            //$("#cbBonus").prop('disabled', true);
             exp_table = [
                  0, 0, 50, 200, 500, 900, 1500, 2200, 2900, 3800, 4900, 6500, 8000, 9600, 11500, 13500, 15600, 17800, 20100, 22950, 26500, 30450, 34450, 38900, 43850, 49350, 
                  55450, 62200, 69650, 77850, 86850, 96700, 107450, 119150, 131850, 145600, 160450, 176450, 193650, 212100, 231850, 252950, 275450, 299400, 324850, 351850, 380450, 
@@ -55,20 +56,22 @@ $(document).ready(function(){
                  147981300, 152757800, 157687300, 162789800, 168085300, 173598800, 179355300, 185379800, 191697300, 198332800
             ];
         }
+
         if($("#target-from").val() > max_level) {
             $("#target-from").val(1);
         }
         if($("#target-to").val() > max_level) {
             $("#target-to").val(40);
         }
-        // main computation
+
+        // Main computation
         var current_exp = 0;
         if(parseInt($("#next-level").val()) > 0){
             current_exp = (exp_table[parseInt($("#target-from").val()) + 1] - exp_table[parseInt($("#target-from").val())]) - parseInt($("#next-level").val());
         }
-        console.log("TO:" + $("#target-to").val());
-        console.log("EXP TO:" + exp_table[$("#target-to").val()]);
-        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level){
+        // console.log("TO:" + $("#target-to").val());
+        // console.log("EXP TO:" + exp_table[$("#target-to").val()]);
+        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level && $("#target-from").val() <= $("#target-to").val()){
             var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - current_exp;
             var bonus_exp = $("#bonus-exp").val();
             var angel_per_exp = 100;
@@ -85,8 +88,8 @@ $(document).ready(function(){
             $("#total-exp").val(total_exp);
         }        
 
-        // error popups
-        if($("#total-exp").val() < 0){
+        // Error popups
+        if($("#target-from").val() > $("#target-to").val() || $("#total-exp").val() < 0){
             $("#error-content").html("You cannot downgrade weapons/summons/characters.");
             $("#error-message").show();
         }
