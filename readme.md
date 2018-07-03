@@ -7,12 +7,11 @@
 - The calculator will display the needed Angel Items **OR** Archangel Items to reach the target level.
 - Note that the calculator will always give the base weapons needed (i.e. Total exp is 1001: given that bonus exp is 0%, Archangel Weapons will display 3.)
 
-### Known issues
- - Console logging of NaN errors. Probably from computation of null values.
+### Team
+- [Eurea](https://github.com/eurea) coding
+- [Visco](https://github.com/IAmVisco) idea and coding
  
- ### Special Thanks
- - [Visco](https://github.com/IAmVisco) for testing
- - [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view
- ### Code used
- - [pradeep330](https://bootsnipp.com/snippets/featured/material-design-tab-style) - Material design tabs
- - [tholman](https://github.com/tholman/github-corners) - GitHub corner icon
+### Special Thanks
+- [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view
+- [pradeep330](https://bootsnipp.com/snippets/featured/material-design-tab-style) for material design tabs
+- [tholman](https://github.com/tholman/github-corners) for GitHub corner icon
