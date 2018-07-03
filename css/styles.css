@@ -1,5 +1,6 @@
 body {
 	background-image: url("../img/bg.jpg");
+	background-repeat: no-repeat;
 	color: #000000;
 }
 label {
