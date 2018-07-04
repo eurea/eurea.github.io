@@ -1,13 +1,13 @@
 body {
-	background-image: url("../img/bg.jpg");
-	background-repeat: no-repeat;
+	background: url("../img/bg.jpg") no-repeat;
+	background-size: cover;
 	color: #000000;
 }
 label {
 	font-weight: normal;
 }
 [lang="jp"] {
-	display: none !important;
+	display: none;
 }
 .container {
 	padding-left: 0px;
@@ -19,6 +19,7 @@ label {
 }
 .form-inline {
 	padding-left: 10px;
+	padding-top: 10px;
 }
 .form-control.inp-sm {
 	width: 75px;
@@ -112,4 +113,59 @@ label {
 	.github-corner .octo-arm {
 		animation: octocat-wave 560ms ease-in-out
 	}
+}
+.lang-label {
+	position: relative;
+	top: -15;
+}
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	display:none;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	-webkit-transition: .3s;
+	transition: .3s;
+	border-radius: 28px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 22px;
+	width: 22px;
+	left: 6px;
+	bottom: 4px;
+	background-color: #0288D1;
+	transition: .3s;
+	border-radius: 50%;
+}
+
+input:checked + .slider:before {
+	background-color: red;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
 }
