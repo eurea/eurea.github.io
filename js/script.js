@@ -15,6 +15,7 @@ $(document).ready(function(){
     	// Exp tables
         if($("#rd-weapon").is(':checked')){
             $('.rank').fadeIn();
+            max_level = 200;
         	exp_table = [
 	        	0,0,10,22,36,52,70,90,112,136,162,190,220,255,295,340,390,450,520,600,690,790,910,1050,1210,1390,1590,1810,2050,2310,2590,2890,3210,
 	        	3550,3910,4290,4690,5110,5550,6010,6490,6990,7510,8050,8610,9190,9790,10410,11050,11710,12390,13090,13810,14550,15310,16090,16890,17710,
@@ -66,12 +67,12 @@ $(document).ready(function(){
 
         // Main computation
         var current_exp = 0;
+
         if(parseInt($("#next-level").val()) > 0){
             current_exp = (exp_table[parseInt($("#target-from").val()) + 1] - exp_table[parseInt($("#target-from").val())]) - parseInt($("#next-level").val());
         }
-        // console.log("TO:" + $("#target-to").val());
-        // console.log("EXP TO:" + exp_table[$("#target-to").val()]);
-        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level && $("#target-from").val() <= $("#target-to").val()){
+
+        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level){//} && $("#target-from").val() <= $("#target-to").val()){
             var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - current_exp;
             var bonus_exp = $("#bonus-exp").val();
             var angel_per_exp = 100;
@@ -81,19 +82,21 @@ $(document).ready(function(){
                 angel_per_exp = 150;
                 arch_per_exp = 750
             }
-            if( ! $("#rd-rank").is(':checked')){
+            if(!$("#rd-rank").is(':checked')){
                 $("#angel").val(Math.ceil(total_exp / (angel_per_exp + Math.floor(angel_per_exp*(bonus_exp/100)))));
                 $("#archangel").val(Math.ceil(total_exp / (arch_per_exp + Math.floor(arch_per_exp*(bonus_exp/100)))));
             }
             $("#total-exp").val(total_exp);
         }        
-
+        if ($("#target-from").val() > $("#target-to").val()){
+            console.log(typeof $("#target-from").val())
+        }
         // Error popups
-        if($("#target-from").val() > $("#target-to").val() || $("#total-exp").val() < 0){
+        if ($("#total-exp").val() < 0 ) {//|| $("#target-from").val() > $("#target-to").val()) {
             $("#error-content").html("You cannot downgrade weapons/summons/characters.");
             $("#error-message").show();
         }
-        else{
+        else {
             $("#error-message").hide();
             $("#error-content").html("");
         }
