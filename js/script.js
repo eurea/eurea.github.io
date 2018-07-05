@@ -1,8 +1,12 @@
 $(document).ready(function(){
+    if (getCookie("lang") == "jp")
+        $("#lang-box").prop("checked", true);
+
     $("#bonus-info").popover({
+        animation: true,
         content:"Usually comes from Wonders and Elemental Skills.",
         trigger:"hover",
-        placement:"bottom",
+        placement:"auto bottom",
     });
 
     $(".trigger").on('input click',function(){
@@ -74,7 +78,7 @@ $(document).ready(function(){
             current_exp = (exp_table[parseInt($("#target-from").val()) + 1] - exp_table[parseInt($("#target-from").val())]) - parseInt($("#next-level").val());
         }
 
-        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level){//} && $("#target-from").val() <= $("#target-to").val()){
+        if ($("#target-from").val() <= max_level && $("#target-to").val() <= max_level && parseInt($("#target-from").val()) <= parseInt($("#target-to").val())){
             var total_exp = exp_table[$("#target-to").val()] - exp_table[$("#target-from").val()] - current_exp;
             var bonus_exp = $("#bonus-exp").val();
             var angel_per_exp = 100;
@@ -90,24 +94,15 @@ $(document).ready(function(){
             }
             $("#total-exp").val(total_exp);
         }        
-        if ($("#target-from").val() > $("#target-to").val()){
-            console.log(typeof $("#target-from").val())
-        }
+
         // Error popups
-        if ($("#total-exp").val() < 0 ) {//|| $("#target-from").val() > $("#target-to").val()) {
-            $("#error-content").html("You cannot downgrade weapons/summons/characters.");
+        if ($("#total-exp").val() < 0 || parseInt($("#target-from").val()) > parseInt($("#target-to").val())) {
             $("#error-message").show();
         }
         else {
             $("#error-message").hide();
-            $("#error-content").html("");
         }
     });
     
     $(".trigger-crystal").on('input click', calcRolls);
 });
-
-function changeLanguage() {
-    $('[lang="jp"]').toggle();
-    $('[lang="en"]').toggle();
-}
