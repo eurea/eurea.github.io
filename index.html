@@ -24,9 +24,9 @@
 			<div class="menu"> <!-- Nav bar -->
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#spark" lang="en">Spark Calc</a></li>
-					<li class="active"><a data-toggle="tab" href="#spark" lang="jp" style="display: none;">蒼光の御印</a></li>
+					<li class="active"><a data-toggle="tab" href="#spark" lang="jp" style="display: none;">蒼光の御印の計算</a></li>
 					<li><a data-toggle="tab" href="#exp" lang="en">RP&amp;EXP Calc</a></li>
-					<li><a data-toggle="tab" href="#exp" lang="jp" style="display: none;">RPとEXP</a></li>
+					<li><a data-toggle="tab" href="#exp" lang="jp" style="display: none;">RPとEXPの計算</a></li>
 					<li><a data-toggle="tab" href="#settings">Settings/設定</a></li>
 				</ul>
 			</div>
@@ -53,12 +53,12 @@
 					<form class="form-inline">
 						<div class="form-group">
 							<label lang="en">Total rolls:</label>
-							<label lang="jp">宝晶石で購入合計:</label>
+							<label lang="jp">合計:</label>
 							<input class="form-control inp-md" type="number" id="total-rolls" value="0" readonly>
 						</div>
 						<div class="form-group">
 							<label lang="en">Percentage:</label>
-							<label lang="jp">PercentageJP:</label>
+							<label lang="jp">%:</label>
 							<input class="form-control inp-md mobile-margin" style="margin-left: 14px" type="text" id="percentage" value="0%" readonly>
 						</div>
 					</form>
@@ -84,19 +84,19 @@
 						</div>
 						<div class="form-group">
 							<i class="fa fa-info-circle rank" id="bonus-info"></i>
-							<label for="bonus-exp" class="rank"><span lang="en">Bonus Exp (%):</span><span lang="jp">ボーナス EXP (%):</span></label>
+							<label for="bonus-exp" class="rank"><span lang="en">Bonus Exp (%):</span><span lang="jp">ボーナスEXP (%):</span></label>
 							<input type="number" class="form-control inp-sm trigger rank" id="bonus-exp" min="0" value="10">
 						</div>
 					</form>
 					<form class="form-inline">
 						<label class="radio-inline">
-						 	<input type="radio" name="rdType" class="trigger" id="rd-weapon" value="weapon" checked> <span lang="en">Weapon/Summon</span><span lang="jp">武器 \ 召喚石</span>
+						 	<input type="radio" name="rdType" class="trigger" id="rd-weapon" value="weapon" checked> <span lang="en">Weapon/Summon</span><span lang="jp">武器/召喚石</span>
 						</label>
 						<label class="radio-inline mobile-margin">
 						 	<input type="radio" name="rdType" class="trigger" id="rd-char" value="char"> <span lang="en">Character</span><span lang="jp">キャラ</span>
 						</label>
 						<label class="radio-inline mobile-margin" style="margin-right: 10px">
-						 	<input type="radio" name="rdType" class="trigger" id="rd-rank" value="rank"> <span lang="en">Rank</span><span lang="jp">ランク</span>
+						 	<input type="radio" name="rdType" class="trigger" id="rd-rank" value="rank"> <span lang="en">Rank</span><span lang="jp">Rank</span>
 						</label>
 						<label class="checkbox-inline rank">
 						 	<input type="checkbox" class="trigger" id="cbBonus" value="bonus"> <span lang="en">Same Type</span><span lang="jp">同じ武器の種類</span>
@@ -105,7 +105,7 @@
 					<form class="form-inline">
 						<div class="form-group">
 							<label lang="en"> Total Exp: </label>
-							<label lang="jp"> 合計EXP: </label>
+							<label lang="jp"> EXPの合計: </label>
 							<input class="form-control inp-md" type="number" id="total-exp" value="6490" style="padding-right: 0px" readonly>
 						</div>
 						<div class="form-group">
@@ -120,7 +120,7 @@
 					<div class="alert alert-danger" id="error-message">
 						<i class="fa fa-warning"></i>
 						<span lang="en"><strong class="error-title"> Error: </strong>You cannot downgrade weapons/summons/characters.</span>
-						<span lang="jp"><strong class="error-title"> エラー:</strong>レベルを下げることが出来ません</span>
+						<span lang="jp"><strong class="error-title"> エラー:</strong>武器/召喚石/キャラを下がらない</span>
 						<label id="error-content"></label>
 					</div>
 				</div>
@@ -133,6 +133,8 @@
 						</label>
 						<label class="lang-label">日本語</label>
 					</form>
+					<span class="info" lang="en">If you have any suggestions or ideas, contact me on Discord: IAmVisco#7099</span>
+					<span class="info" lang="jp">何か考えと助言があれば私にDiscord：IAmVisco＃7099で連絡してください</span>
 				</div>
 			</div>
 		</div>
