@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    if (getCookie("lang") == "jp")
+$(document).ready(function() {
+    if (localStorage.getItem("lang") == "jp")
         $("#lang-box").prop("checked", true);
 
     $("#bonus-info").popover({
@@ -9,7 +9,7 @@ $(document).ready(function(){
         placement:"auto bottom",
     });
 
-    $(".trigger").on('input click',function(){
+    $(".trigger").on('input click', function(){
     	var exp_table = []
     	var max_level = 200;       
 
@@ -105,4 +105,6 @@ $(document).ready(function(){
     });
     
     $(".trigger-crystal").on('input click', calcRolls);
+
+    $("#lang-box").on("click", changeLanguage);
 });

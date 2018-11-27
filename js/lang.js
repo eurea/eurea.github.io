@@ -1,14 +1,11 @@
 function updateLang(lang) {
-    var date = new Date();
-    date = new Date(date.getTime() + 1000 * 60 * 60 * 24 * 365);
-    document.cookie = 'lang=' + lang + ';expires=' + date.toGMTString() + ';';
-    // console.log(getCookie("lang"));
+    localStorage.setItem("lang", lang);
 }
 
 function changeLanguage() {
     $('[lang="jp"]').toggle();
     $('[lang="en"]').toggle();
-    if (getCookie("lang") == "en") {
+    if (localStorage.getItem("lang") == "en") {
         updateLang("jp");
         $("#bonus-info").data('bs.popover').options.content = "普通に大事なものと属性強化スキルから";
         document.title = "グラブルEXPと蒼光の御印の計算";
@@ -19,13 +16,15 @@ function changeLanguage() {
         document.title = "GBF Exp and Spark Calculator";
     }
 }
-// console.log(getCookie("lang"));
-if (getCookie("lang") != "jp") {
-    updateLang("en");
-}
-else {
-    $('[lang="jp"]').toggle();
-    $('[lang="en"]').toggle();
-    document.title = "グラブルEXPと蒼光の御印の計算";
-    setTimeout('$("#bonus-info").data("bs.popover").options.content = "普通に大事なものと属性強化スキルから";', 200);
-}
+
+$(function () {
+    if (localStorage.getItem("lang") != "jp") {
+        updateLang("en");
+    }
+    else {
+        $('[lang="jp"]').toggle();
+        $('[lang="en"]').toggle();
+        document.title = "グラブルEXPと蒼光の御印の計算";
+        setTimeout('$("#bonus-info").data("bs.popover").options.content = "普通に大事なものと属性強化スキルから";', 200);
+    }
+});

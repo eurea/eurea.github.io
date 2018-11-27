@@ -14,18 +14,33 @@ function getCookie(cname) {
     return "";
 }
 
-function calcRolls(){
-    //console.log(Math.floor($("#crystals").val() / 300));
-    var date = new Date();
-    date = new Date(date.getTime() + 1000 * 60 * 60 * 24 * 365);
-    document.cookie = 'crystals=' + $("#crystals").val() + ';expires=' + date.toGMTString() + ';';
-    document.cookie = 'singles=' + $("#singles").val() + ';expires=' + date.toGMTString() + ';';
-    document.cookie = 'tens=' + $("#tens").val() + ';expires=' + date.toGMTString() + ';';
-    $("#total-rolls").val(Number(Math.floor($("#crystals").val() / 300)) + Number($("#singles").val()) + Number($("#tens").val() * 10));
-    $("#percentage").val(~~(($("#total-rolls").val() / 300) * 100) + "%");
+function writeToStorage() {
+    localStorage.setItem("crystals", $("#crystals").val());
+    localStorage.setItem("singles", $("#singles").val());
+    localStorage.setItem("tens", $("#tens").val());
 }
 
-$("#crystals").val(getCookie("crystals"));
-$("#singles").val(getCookie("singles"));
-$("#tens").val(getCookie("tens"));
-calcRolls();
+function calcRolls() {
+    writeToStorage();
+    $("#total-rolls").val(Number(Math.floor($("#crystals").val() / 300)) + Number($("#singles").val()) + Number($("#tens").val() * 10));
+    $("#percentage").val(~~(($("#total-rolls").val() / 300) * 100) + "%");
+};
+
+(function() {
+    if (localStorage.getItem("newFormat")) {
+        $("#crystals").val(localStorage.getItem("crystals"));
+        $("#singles").val(localStorage.getItem("singles"));
+        $("#tens").val(localStorage.getItem("tens"));
+    }
+    else {
+        // move data from cookies to local storage
+        $("#crystals").val(getCookie("crystals"));
+        $("#singles").val(getCookie("singles"));
+        $("#tens").val(getCookie("tens"));
+
+        localStorage.setItem("lang", getCookie("lang"));
+        localStorage.setItem("newFormat", true);
+        writeToStorage();
+    }
+    calcRolls();
+})();
