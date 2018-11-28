@@ -1,14 +1,6 @@
-$(document).ready(function() {
-    if (localStorage.getItem("lang") == "jp")
-        $("#lang-box").prop("checked", true);
+"use strict";
 
-    $("#bonus-info").popover({
-        animation: true,
-        content:"Usually comes from Wonders and Elemental Skills.",
-        trigger:"hover",
-        placement:"auto bottom",
-    });
-
+$(function() {
     $(".trigger").on('input click', function(){
     	var exp_table = []
     	var max_level = 200;       
