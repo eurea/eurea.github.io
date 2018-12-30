@@ -13,9 +13,13 @@ label {
     padding-left: 0px;
     padding-right: 0px;
     background-color: #E0E0E0;
+    border-radius: 4px;
 }
-.form-group { 
-    display: inline-block; 
+.nav-tabs {
+    border-radius: 4px 4px 0 0;
+}
+.form-group {
+    display: inline-block;
 }
 .form-inline {
     padding-left: 10px;
@@ -55,40 +59,39 @@ label {
     }
 }
 /* Material styled tabs */
-.nav-tabs { 
-    border-bottom: 2px solid #DDD; 
+.nav-tabs {
+    border-bottom: 2px solid #DDD;
     background-color: #0288D1;
 }
-.nav-tabs > li.active > a, 
-.nav-tabs > li.active > a:focus, 
-.nav-tabs > li.active > a:hover { 
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
     color: #000;
-    border-radius: 0;
-    border-width: 0; 
+    border-width: 0;
  }
-.nav-tabs > li > a { 
-    border: none; 
-    color: #000; 
+.nav-tabs > li > a {
+    border: none;
+    color: #000;
+    transition: .25s all;
 }
-.nav-tabs > li.active > a, 
-.nav-tabs > li > a:hover { 
-    border-radius: 0;
+.nav-tabs > li.active > a,
+.nav-tabs > li > a:hover {
     color:#000;
 }
-.nav-tabs > li > a::after { 
-    content: ""; 
-    background: #005B9F; 
-    height: 2px; 
+.nav-tabs > li > a::after {
+    content: "";
+    background: #005B9F;
+    height: 2px;
     position: absolute;
-    width: 100%; 
-    left: 0px; 
-    bottom: -1px; 
-    transition: all 250ms ease 0s; 
-    transform: scale(0); 
+    width: 100%;
+    left: 0px;
+    bottom: -1px;
+    transition: all .25s ease 0s;
+    transform: scale(0);
 }
-.nav-tabs > li.active > a::after, 
-.nav-tabs > li:hover > a::after { 
-    transform: scale(1); 
+.nav-tabs > li.active > a::after,
+.nav-tabs > li:hover > a::after {
+    transform: scale(1);
 }
 /* GitHub Corners */
 .github-corner:hover .octo-arm {
