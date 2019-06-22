@@ -6069,6 +6069,11 @@ loader-utils@1.2.3, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.
     emojis-list "^2.0.0"
     json5 "^1.0.1"
 
+localized-strings@^0.2.00:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/localized-strings/-/localized-strings-0.2.2.tgz#25620bd07c30946cae2f60d878d3a14b343651b7"
+  integrity sha512-00SLj5499BxJPjMPYJXqnva14T/ebRNnLoWTrOqogrmR3gSYR6NidA7xXb3bjMTkSPtrPhFDlx6cGC8cym+LEA==
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -8290,10 +8295,23 @@ react-error-overlay@^5.1.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
 
+react-github-corner@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
+  integrity sha512-yVh8wtAfVA5CQYn8ygyxtsuCMoyiSEBVnzQJ3ynyWxZ1BzT2MHop4baZn/PnUnU9Yh8mwhLS5Y1RVxM5zNotGw==
+
 react-is@^16.3.2, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+
+react-localization@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/react-localization/-/react-localization-1.0.13.tgz#7a1da114c61c8b4814fed2abc699b45ad6bb32b8"
+  integrity sha512-VKbcCpf6FnjhUs1QpEpxGeZCVyAGRknk58w1fG4L4CWHfju/v9A6eyPgRnw6WmKgn2A5EJZt9ewkiP1pQFEwEA==
+  dependencies:
+    localized-strings "^0.2.00"
+    react "^16.0.0"
 
 react-overlays@^1.2.0:
   version "1.2.0"
@@ -8403,7 +8421,7 @@ react-transition-group@^4.0.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.8.6:
+react@^16.0.0, react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
