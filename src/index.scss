@@ -2,3 +2,16 @@ body {
   margin: 0;
   background-image: url("/bg.jpg");
 }
+
+.tab-pane {
+  padding: 15px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.input-sm {
+  padding: 5px;
+  max-width: 120px;
+}
