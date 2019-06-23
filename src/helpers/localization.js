@@ -13,5 +13,10 @@ export default new LocalizedStrings({
   jp: {
     SparkCalc: '蒼光の御印の計算',
     RpCalc: 'RPとEXPの計算',
+    crystals: '宝晶石:',
+    singleTickets: 'チケット:',
+    grandTickets: '10連チケット:',
+    totalRolls: '合計:',
+    percentage: '%:'
   }
 })

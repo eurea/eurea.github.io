@@ -11,8 +11,8 @@ import { Provider } from 'react-redux'
 const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {
   languageCode: 'en',
   crystals: 0,
-  singleTicket: 0,
-  grandTicket: 0
+  singleTickets: 0,
+  grandTickets: 0
 }
 const store = createStore(rootReducer,
   persistedState,
