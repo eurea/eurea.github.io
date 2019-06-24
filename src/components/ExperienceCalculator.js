@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 import strings from '../helpers/localization'
+import infoIcon from '../icons/info-filled.svg'
 
 // import { CharacterData, RankData, WeaponData } from '../helpers/constants'
 
@@ -50,7 +51,9 @@ class ExperienceCalculator extends React.Component {
           </Col>
           <Col xs="4" md="3" lg="2">
             <OverlayTrigger overlay={<Tooltip>{strings.bonusExpInfo}</Tooltip>}>
-              <label className="no-wrap" htmlFor="bonusExp">&#128712;{strings.bonusExp}</label>
+              <label className="no-wrap" htmlFor="bonusExp">
+                <img src={infoIcon} alt="info icon" width="16" /> {strings.bonusExp}
+              </label>
             </OverlayTrigger>
             <input
               min="0"
@@ -61,6 +64,11 @@ class ExperienceCalculator extends React.Component {
               defaultValue="10"
               onClick={this.selectField}
               onChange={this.handleChange} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            
           </Col>
         </Row>
       </React.Fragment>

@@ -1,19 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'bootstrap/scss/bootstrap.scss'
-import './index.scss'
-import App from './components/App'
-import rootReducer from './reducers'
-import * as serviceWorker from './serviceWorker'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import * as serviceWorker from './serviceWorker'
+import 'bootstrap/scss/bootstrap.scss'
+import './index.scss'
+import getDefaultState from './helpers/dataMigration'
+import App from './components/App'
+import rootReducer from './reducers'
 
-const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {
-  languageCode: 'en',
-  crystals: 0,
-  singleTickets: 0,
-  grandTickets: 0
-}
+const persistedState = localStorage.getItem('reduxState')
+  ? JSON.parse(localStorage.getItem('reduxState'))
+  : getDefaultState()
 const store = createStore(rootReducer,
   persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
