@@ -3,7 +3,7 @@ import LocalizedStrings from 'react-localization'
 export default new LocalizedStrings({
   en: {
     SparkCalc: 'Spark Calc',
-    RpCalc: 'RP&EXP Calc',
+    ExpRpCalc: 'RP&EXP Calc',
     crystals: 'Crystals:',
     singleTickets: 'Single tickets:',
     grandTickets: '10x tickets:',
@@ -12,7 +12,7 @@ export default new LocalizedStrings({
   },
   jp: {
     SparkCalc: '蒼光の御印の計算',
-    RpCalc: 'RPとEXPの計算',
+    ExpRpCalc: 'RPとEXPの計算',
     crystals: '宝晶石:',
     singleTickets: 'チケット:',
     grandTickets: '10連チケット:',

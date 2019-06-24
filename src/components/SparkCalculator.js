@@ -1,8 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { Col, Row } from 'react-bootstrap'
 import strings from '../helpers/localization'
 import { SET_SPARK_DATA } from '../helpers/actions'
-import { Col, Row } from 'react-bootstrap'
-import { connect } from 'react-redux'
 
 class SparkCalculator extends React.Component {
   state = {
@@ -25,11 +25,14 @@ class SparkCalculator extends React.Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value }, () => {
-      this.props.dispatch({ type: SET_SPARK_DATA, payload: {
-        crystals: this.state.crystals,
-        singleTickets:this.state.singleTickets,
-        grandTickets: this.state.grandTickets
-      } })
+      this.props.dispatch({
+        type: SET_SPARK_DATA,
+        payload: {
+          crystals: this.state.crystals,
+          singleTickets: this.state.singleTickets,
+          grandTickets: this.state.grandTickets
+        }
+      })
       this.recalculateRolls()
     })
   }
@@ -50,8 +53,12 @@ class SparkCalculator extends React.Component {
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="crystals">{strings.crystals}</label>
             <input
+              min="0"
+              step="100"
+              max="999999"
               type="number"
               className="input-sm form-control"
+              id="crystals"
               name="crystals"
               defaultValue={this.state.crystals}
               onClick={this.selectField}
@@ -60,8 +67,11 @@ class SparkCalculator extends React.Component {
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="singleTickets">{strings.singleTickets}</label>
             <input
+              min="0"
+              max="9999"
               type="number"
               className="input-sm form-control"
+              id="singleTickets"
               name="singleTickets"
               defaultValue={this.state.singleTickets}
               onClick={this.selectField}
@@ -70,8 +80,11 @@ class SparkCalculator extends React.Component {
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="grandTickets">{strings.grandTickets}</label>
             <input
+              min="0"
+              max="999"
               type="number"
               className="input-sm form-control"
+              id="grandTickets"
               name="grandTickets"
               defaultValue={this.state.grandTickets}
               onClick={this.selectField}
@@ -85,6 +98,7 @@ class SparkCalculator extends React.Component {
               disabled
               type="text"
               className="input-sm form-control"
+              id="totalRolls"
               name="totalRolls"
               defaultValue={this.state.totalRolls}
               onClick={this.selectField}
@@ -96,6 +110,7 @@ class SparkCalculator extends React.Component {
               disabled
               type="text"
               className="input-sm form-control"
+              id="percentage"
               name="percentage"
               defaultValue={this.state.percentage}
               onClick={this.selectField}
