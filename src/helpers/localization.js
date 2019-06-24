@@ -17,6 +17,9 @@ export default new LocalizedStrings({
     toNextLevel: 'To next level:',
     bonusExp: 'Bonus Exp (%):',
     bonusExpInfo: 'Usually comes from Wonders and Elemental Skills.',
+    weaponSummon: 'Weapon/ Summon',
+    character: 'Character',
+    rank: 'Rank',
     english,
     japanese
   },
@@ -33,6 +36,9 @@ export default new LocalizedStrings({
     toNextLevel: '次のLvまで:',
     bonusExp: ' ボーナスEXP (%):',
     bonusExpInfo: '普通に大事なものと属性強化スキルから',
+    weaponSummon: '武器/召喚石',
+    character: 'キャラ',
+    rank: 'Rank',
     english,
     japanese
   }

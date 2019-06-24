@@ -1,5 +1,10 @@
 export const English = 'en'
 export const Japanese = 'jp'
+export const ExperienceTypes = {
+  Weapon: 'weapon',
+  Character: 'character',
+  Rank: 'rank'
+}
 export const WeaponData = {
   max_level: 200,
   exp_table: [
