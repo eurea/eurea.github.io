@@ -1,5 +1,8 @@
 import LocalizedStrings from 'react-localization'
 
+const english = 'English'
+const japanese = '日本語'
+
 export default new LocalizedStrings({
   en: {
     SparkCalc: 'Spark Calc',
@@ -8,7 +11,9 @@ export default new LocalizedStrings({
     singleTickets: 'Single tickets:',
     grandTickets: '10x tickets:',
     totalRolls: 'Total rolls:',
-    percentage: 'Percentage:'
+    percentage: 'Percentage:',
+    english,
+    japanese
   },
   jp: {
     SparkCalc: '蒼光の御印の計算',
@@ -17,6 +22,8 @@ export default new LocalizedStrings({
     singleTickets: 'チケット:',
     grandTickets: '10連チケット:',
     totalRolls: '合計:',
-    percentage: '%:'
+    percentage: '%:',
+    english,
+    japanese
   }
 })

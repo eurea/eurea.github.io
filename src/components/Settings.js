@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import '../styles/Settings.scss'
 import { SET_LANGUAGE } from '../helpers/actions'
+import strings from '../helpers/localization'
 import { English, Japanese } from '../helpers/constants'
 
 class Settings extends React.Component {
@@ -15,12 +17,16 @@ class Settings extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <label htmlFor="languageSwitch">Language</label>
-        <input
-          type="checkbox"
-          id="languageSwitch"
-          onChange={this.handleCheckboxChange}
-          checked={this.props.languageCode === Japanese} />
+        <label className="language-label">{strings.english}&nbsp;</label>
+        <label className="switch">
+          <input
+            type="checkbox"
+            id="languageSwitch"
+            onChange={this.handleCheckboxChange}
+            checked={this.props.languageCode === Japanese} />
+          <span className="slider" />
+        </label>
+        <label className="language-label">&nbsp;{strings.japanese}</label>
       </React.Fragment>
     )
   }
