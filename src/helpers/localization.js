@@ -16,6 +16,7 @@ export default new LocalizedStrings({
     levelTo: 'To:',
     toNextLevel: 'To next level:',
     bonusExp: 'Bonus Exp (%):',
+    bonusExpInfo: 'Usually comes from Wonders and Elemental Skills.',
     english,
     japanese
   },
@@ -31,6 +32,7 @@ export default new LocalizedStrings({
     levelTo: 'まで:',
     toNextLevel: '次のLvまで:',
     bonusExp: ' ボーナスEXP (%):',
+    bonusExpInfo: '普通に大事なものと属性強化スキルから',
     english,
     japanese
   }

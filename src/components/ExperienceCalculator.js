@@ -49,7 +49,7 @@ class ExperienceCalculator extends React.Component {
               onChange={this.handleChange} />
           </Col>
           <Col xs="4" md="3" lg="2">
-            <OverlayTrigger overlay={<Tooltip>{strings.crystals}</Tooltip>}>
+            <OverlayTrigger overlay={<Tooltip>{strings.bonusExpInfo}</Tooltip>}>
               <label className="no-wrap" htmlFor="bonusExp">&#128712;{strings.bonusExp}</label>
             </OverlayTrigger>
             <input
