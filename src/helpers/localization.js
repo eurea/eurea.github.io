@@ -12,6 +12,10 @@ export default new LocalizedStrings({
     grandTickets: '10x tickets:',
     totalRolls: 'Total rolls:',
     percentage: 'Percentage:',
+    levelFrom: 'From:',
+    levelTo: 'To:',
+    toNextLevel: 'To next level:',
+    bonusExp: 'Bonus Exp (%):',
     english,
     japanese
   },
@@ -23,6 +27,10 @@ export default new LocalizedStrings({
     grandTickets: '10連チケット:',
     totalRolls: '合計:',
     percentage: '%:',
+    levelFrom: 'から:',
+    levelTo: 'まで:',
+    toNextLevel: '次のLvまで:',
+    bonusExp: ' ボーナスEXP (%):',
     english,
     japanese
   }

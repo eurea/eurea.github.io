@@ -8,6 +8,7 @@ import strings from '../helpers/localization'
 import SparkCalculator from './SparkCalculator'
 import { Japanese } from '../helpers/constants'
 import { SET_LANGUAGE } from '../helpers/actions'
+import ExperienceCalculator from './ExperienceCalculator'
 
 class App extends React.Component {
   componentWillMount() {
@@ -19,12 +20,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="container mt-md-3">
-        <Tabs>
+        <Tabs defaultActiveKey="exp">
           <Tab eventKey="spark" title={strings.SparkCalc}>
             <SparkCalculator language={this.props.languageCode} />
           </Tab>
           <Tab eventKey="exp" title={strings.ExpRpCalc}>
-            2
+            <ExperienceCalculator language={this.props.languageCode} />
           </Tab>
           <Tab eventKey="settings" title="Settings/設定">
             <Settings />

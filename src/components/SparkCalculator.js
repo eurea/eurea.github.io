@@ -49,7 +49,7 @@ class SparkCalculator extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Row className="justify-content-start">
+        <Row>
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="crystals">{strings.crystals}</label>
             <input
