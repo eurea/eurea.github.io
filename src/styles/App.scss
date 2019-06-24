@@ -10,11 +10,11 @@
 .nav-tabs {
   border-radius: 4px 4px 0 0;
   background-color: $accent-blue;
-}
 
-.nav-tabs .nav-item {
-  border:none;
-  margin: 0;
+  & .nav-item {
+    border: none;
+    margin: 0;
+  }
 }
 
 .nav-tabs .nav-link {
@@ -41,6 +41,6 @@
 
   &.active::after,
   &:hover::after {
-      transform: scale(1, 1);
+    transform: scale(1, 1);
   }
 }

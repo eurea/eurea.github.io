@@ -1,46 +1,41 @@
 import React from 'react'
-import '../styles/App.scss'
-import strings from '../helpers/localization'
-import SparkCalculator from './SparkCalculator'
-import { SET_LANGUAGE } from '../helpers/actions'
 import { connect } from 'react-redux'
 import { Tab, Tabs } from 'react-bootstrap'
 import GithubCorner from 'react-github-corner'
+import '../styles/App.scss'
+import Settings from './Settings'
+import strings from '../helpers/localization'
+import SparkCalculator from './SparkCalculator'
+import { Japanese } from '../helpers/constants'
+import { SET_LANGUAGE } from '../helpers/actions'
+import ExperienceCalculator from './ExperienceCalculator'
 
 class App extends React.Component {
   componentWillMount() {
-    if (this.props.languageCode === 'jp') {
-      this.props.changeLanguage('jp')
-    }
-  }
-
-  swapLang = (e) => {
-    e.preventDefault()
-    if (this.props.languageCode === 'en') {
-      this.props.changeLanguage('jp')
-    } else {
-      this.props.changeLanguage('en')
+    if (this.props.languageCode === Japanese) {
+      this.props.changeLanguage(Japanese)
     }
   }
 
   render() {
     return (
       <div className="container mt-md-3">
-        <Tabs>
+        <Tabs defaultActiveKey="exp">
           <Tab eventKey="spark" title={strings.SparkCalc}>
-            <SparkCalculator />
+            <SparkCalculator language={this.props.languageCode} />
           </Tab>
-          <Tab eventKey="exp" title={strings.RpCalc}>
-            2
+          <Tab eventKey="exp" title={strings.ExpRpCalc}>
+            <ExperienceCalculator language={this.props.languageCode} />
           </Tab>
           <Tab eventKey="settings" title="Settings/設定">
-            3
+            <Settings />
           </Tab>
         </Tabs>
         <GithubCorner
           href="https://github.com/IAmVisco/gbf-calculator"
           bannerColor="#0288D1"
-          target="_blank" />
+          target="_blank"
+          rel="noreferrer" />
       </div>
     )
   }

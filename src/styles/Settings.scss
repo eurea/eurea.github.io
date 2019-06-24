@@ -1,0 +1,62 @@
+@import '_colors.scss';
+
+.switch input {
+  display: none;
+}
+
+.switch {
+  width: 60px;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.language-label {
+  top: -5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 28px;
+  background-color: white;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.slider:before {
+  content: "";
+  left: 6px;
+  bottom: 4px;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  border-radius: 50%;
+  transition: .3s;
+  background-color: $accent-blue;
+}
+
+input:checked + .slider:before {
+  background-color: red;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -moz-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  -o-transform: translateX(26px);
+  transform: translateX(26px);
+}
