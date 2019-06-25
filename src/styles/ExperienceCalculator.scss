@@ -3,6 +3,12 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
 
+@include media-breakpoint-between(sm, sm) {
+  .checkbox-col {
+    margin-top: 1rem;
+  }
+}
+
 .radio-tile-group {
   display: flex;
   flex-wrap: wrap;
@@ -18,6 +24,12 @@
     height: 32px;
     width: 120px;
     margin: 0 15px 0 0;
+
+    @include media-breakpoint-up(sm) {
+      &:last-child {
+        margin: 0;
+      }
+    }
 
     @include media-breakpoint-down(xs) {
       margin-bottom: 15px;

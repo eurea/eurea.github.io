@@ -9,11 +9,20 @@ import { ExperienceTypes } from '../helpers/constants'
 
 class ExperienceCalculator extends React.Component {
   state = {
-    expType: 'weapon'
+    expType: ExperienceTypes.Weapon,
+    bonusExp: 10,
+    sameType: false,
+    totalExperience: 0,
+    archangelItems: 0,
+    vessels: 0
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleCheckbox = (e) => {
+    this.setState({ [e.target.name]: e.target.checked })
   }
 
   render() {
@@ -71,7 +80,7 @@ class ExperienceCalculator extends React.Component {
               className="input-sm form-control"
               id="bonusExp"
               name="bonusExp"
-              defaultValue="10"
+              value={this.state.bonusExp}
               onClick={this.selectField}
               onChange={this.handleChange} />
           </Col>
@@ -130,6 +139,50 @@ class ExperienceCalculator extends React.Component {
               </div>
             </div>
           </div>
+          <Col md="2" className="d-flex align-items-center checkbox-col">
+            <label htmlFor="sameType" className="m-0 pr-2 no-wrap">{strings.sameType}</label>
+            <input
+              type="checkbox"
+              name="sameType"
+              id="sameType"
+              checked={this.state.sameType}
+              onChange={this.handleCheckbox} />
+          </Col>
+        </Row>
+        <Row className="mt-3">
+          <Col xs="4" md="3" lg="2">
+            <label className="no-wrap" htmlFor="totalExperience">{strings.totalExperience}</label>
+            <input
+              disabled
+              type="number"
+              id="totalExperience"
+              name="totalExperience"
+              className="input-sm form-control"
+              value={this.state.totalExperience}
+              onChange={this.handleChange} />
+          </Col>
+          <Col xs="4" md="3" lg="2">
+            <label className="no-wrap" htmlFor="archangelItems">{strings.archangelItems}</label>
+            <input
+              disabled
+              type="number"
+              id="archangelItems"
+              name="archangelItems"
+              className="input-sm form-control"
+              value={this.state.archangelItems}
+              onChange={this.handleChange} />
+          </Col>
+          <Col xs="4" md="3" lg="2">
+            <label className="no-wrap" htmlFor="vessels">{strings.vessels}</label>
+            <input
+              disabled
+              type="number"
+              id="vessels"
+              name="vessels"
+              value={this.state.vessels}
+              className="input-sm form-control"
+              onChange={this.handleChange} />
+          </Col>
         </Row>
       </React.Fragment>
     )
