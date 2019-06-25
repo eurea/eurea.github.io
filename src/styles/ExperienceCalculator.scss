@@ -3,9 +3,20 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
 
-@include media-breakpoint-between(sm, sm) {
-  .checkbox-col {
+.checkbox-col {
+  display: flex;
+
+  @include media-breakpoint-between(sm, sm) {
     margin-top: 1rem;
+  }
+}
+
+.will-hide {
+   transition: all .2s ease-in-out;
+
+  &[hidden] {
+    display: initial !important;
+    opacity: 0;
   }
 }
 
@@ -24,6 +35,10 @@
     height: 32px;
     width: 120px;
     margin: 0 15px 0 0;
+
+    &:hover {
+      //TODO: add something
+    }
 
     @include media-breakpoint-up(sm) {
       &:last-child {

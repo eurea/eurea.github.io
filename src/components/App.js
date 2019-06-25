@@ -20,7 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container mt-md-3">
-        <Tabs>
+        <Tabs defaultActiveKey="exp">
           <Tab eventKey="spark" title={strings.SparkCalc}>
             <SparkCalculator language={this.props.languageCode} />
           </Tab>
