@@ -76,7 +76,7 @@ class ExperienceCalculator extends React.Component {
               onChange={this.handleChange} />
           </Col>
         </Row>
-        <Row>
+        <Row className="mt-3">
           <div className="radio-tile-group">
             <div className="input-container">
               <input

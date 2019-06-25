@@ -1,4 +1,7 @@
 @import "_colors";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
 
 .radio-tile-group {
   display: flex;
@@ -6,11 +9,20 @@
   justify-content: left;
   padding-left: 15px;
 
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+
   .input-container {
     position: relative;
-    height:  32px;
-    width:  120px;
-    margin: 15px 15px 0 0;
+    height: 32px;
+    width: 120px;
+    margin: 0 15px 0 0;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 15px;
+      width: 100%;
+    }
 
     .radio-button {
       opacity: 0;
@@ -23,7 +35,6 @@
       cursor: pointer;
     }
 
-    //default tile styles
     .radio-tile {
       display: flex;
       flex-direction: row;
