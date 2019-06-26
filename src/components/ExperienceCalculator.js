@@ -65,7 +65,7 @@ class ExperienceCalculator extends React.Component {
   }
 
   handleInputChange = (e) => {
-    this.setState({ [e.target.name]: parseInt(e.target.value) }, () => {
+    this.setState({ [e.target.name]: parseInt(e.target.value) || '' }, () => {
       this.recalculateExperience()
     })
   }
