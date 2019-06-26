@@ -27,7 +27,8 @@ export default new LocalizedStrings({
     archangelItems: 'Archangel Items:',
     vessels: 'Vessels:',
     error: 'Error',
-    cantDowngrade: 'You cannot downgrade weapons/summons/characters.'
+    cantDowngrade: 'You cannot downgrade weapons/summons/characters.',
+    suggestionsWelcomed: 'If you have any suggestions or ideas, contact me on Discord: IAmVisco#7099'
   },
   jp: {
     english,
@@ -52,6 +53,7 @@ export default new LocalizedStrings({
     archangelItems: 'アークエンジェル:',
     vessels: '杯:',
     error: 'エラー',
-    cantDowngrade: '武器/召喚石/キャラを下がらない'
+    cantDowngrade: '武器/召喚石/キャラを下がらない',
+    suggestionsWelcomed: '何か考えと助言があれば私にDiscord：IAmVisco＃7099で連絡してください'
   }
 })
