@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
+import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 import '../styles/ExperienceCalculator.scss'
 import strings from '../helpers/localization'
 import infoIcon from '../icons/info-filled.svg'
@@ -17,6 +17,7 @@ class ExperienceCalculator extends React.Component {
     levelTo: 40,
     levelFrom: 1,
     toNextLevel: 0,
+    showError: false,
     maxLevel: ExperienceData[ExperienceTypes.Weapon].maxLevel,
     experienceTable: ExperienceData[ExperienceTypes.Weapon].experienceTable
   }
@@ -35,15 +36,16 @@ class ExperienceCalculator extends React.Component {
 
       if (this.state.levelFrom > this.state.maxLevel
         || this.state.levelTo > this.state.maxLevel) {
-        // TODO: displayError()
+        this.setState({ showError: true })
         return
       }
 
       if (this.state.levelFrom > this.state.levelTo) {
-        // TODO: displayError()
+        this.setState({ showError: true })
         return
       }
 
+      this.setState({ showError: false })
       const archangelExp = this.state.sameType ? 750 : 500
       const vesselExp = 30000
       let currentExperience = 0
@@ -51,7 +53,7 @@ class ExperienceCalculator extends React.Component {
         currentExperience = (this.state.experienceTable[this.state.levelFrom + 1]
           - this.state.experienceTable[this.state.levelFrom]) - this.state.toNextLevel
       }
-      let totalExperience = this.state.experienceTable[this.state.levelTo]
+      const totalExperience = this.state.experienceTable[this.state.levelTo]
         - this.state.experienceTable[this.state.levelFrom] - currentExperience
       if (this.state.expType !== ExperienceTypes.Rank) {
         const vessels = getRequiredItemsCount(totalExperience, vesselExp)
@@ -243,6 +245,9 @@ class ExperienceCalculator extends React.Component {
               onChange={this.handleChange} />
           </Col>
         </Row>
+        <Alert variant="danger" className="mb-0 mt-3" show={this.state.showError}>
+          <strong>{strings.error}: </strong>{strings.cantDowngrade}
+        </Alert>
       </React.Fragment>
     )
   }
