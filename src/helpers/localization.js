@@ -25,7 +25,10 @@ export default new LocalizedStrings({
     sameType: 'Same type',
     totalExperience: 'Total Experience:',
     archangelItems: 'Archangel Items:',
-    vessels: 'Vessels:'
+    vessels: 'Vessels:',
+    error: 'Error',
+    cantDowngrade: 'You cannot downgrade weapons/summons/characters.',
+    suggestionsWelcomed: 'If you have any suggestions or ideas, contact me on Discord: IAmVisco#7099'
   },
   jp: {
     english,
@@ -48,6 +51,9 @@ export default new LocalizedStrings({
     sameType: '同じ武器の種類',
     totalExperience: 'EXPの合計:',
     archangelItems: 'アークエンジェル:',
-    vessels: '杯:'
+    vessels: '杯:',
+    error: 'エラー',
+    cantDowngrade: '武器/召喚石/キャラを下がらない',
+    suggestionsWelcomed: '何か考えと助言があれば私にDiscord：IAmVisco＃7099で連絡してください'
   }
 })

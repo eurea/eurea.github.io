@@ -4,6 +4,7 @@ import '../styles/Settings.scss'
 import { SET_LANGUAGE } from '../helpers/actions'
 import strings from '../helpers/localization'
 import { English, Japanese } from '../helpers/constants'
+import { Alert } from 'react-bootstrap'
 
 class Settings extends React.Component {
   handleCheckboxChange = () => {
@@ -27,6 +28,9 @@ class Settings extends React.Component {
           <span className="slider" />
         </label>
         <label className="language-label">&nbsp;{strings.japanese}</label>
+        <Alert variant="info" className="mb-0 mt-3">
+          {strings.suggestionsWelcomed}
+        </Alert>
       </React.Fragment>
     )
   }
