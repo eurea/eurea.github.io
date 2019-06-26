@@ -12,11 +12,15 @@
 }
 
 .will-hide {
-   transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 
   &[hidden] {
     display: initial !important;
     opacity: 0;
+
+    @include media-breakpoint-down(sm) {
+      display: none !important;
+    }
   }
 }
 

@@ -4,7 +4,7 @@ import '../styles/ExperienceCalculator.scss'
 import strings from '../helpers/localization'
 import infoIcon from '../icons/info-filled.svg'
 import { ExperienceTypes } from '../helpers/constants'
-import { CharacterData, RankData, WeaponData } from '../helpers/constants'
+import { ExperienceData } from '../helpers/constants'
 
 class ExperienceCalculator extends React.Component {
   state = {
@@ -17,60 +17,49 @@ class ExperienceCalculator extends React.Component {
     levelTo: 40,
     levelFrom: 1,
     toNextLevel: 0,
-    maxLevel: WeaponData.maxLevel,
-    expTable: WeaponData.experienceTable
+    maxLevel: ExperienceData[ExperienceTypes.Weapon].maxLevel,
+    experienceTable: ExperienceData[ExperienceTypes.Weapon].experienceTable
   }
 
   componentDidMount() {
     this.recalculateExperience()
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.expType !== this.state.expType) {
-      switch (this.state.expType) {
-        case ExperienceTypes.Weapon: {
-          this.setState({ ...WeaponData })
-          break
-        }
-        case ExperienceTypes.Character: {
-          this.setState({ ...CharacterData })
-          break
-        }
-        case ExperienceTypes.Rank: {
-          this.setState({ ...RankData })
-          break
-        }
-        default: {
-          this.setState({ ...WeaponData })
-          break
-        }
-      }
-    }
-  }
-
   recalculateExperience = () => {
-    if (this.state.levelFrom > this.state.maxLevel) {
-      this.setState({ levelFrom: 1 })
-    }
+    this.setState({
+      ...ExperienceData[this.state.expType]
+    }, () => {
+      const getRequiredItemsCount = (totalExperience, itemExperience) => {
+        return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (this.state.bonusExp / 100))))
+      }
 
-    if (this.state.levelTo > this.state.maxLevel) {
-      this.setState({ levelTo: this.state.maxLevel })
-    }
+      if (this.state.levelFrom > this.state.maxLevel
+        || this.state.levelTo > this.state.maxLevel) {
+        // TODO: displayError()
+        return
+      }
 
-    if (this.state.levelFrom <= this.state.levelTo) {
+      if (this.state.levelFrom > this.state.levelTo) {
+        // TODO: displayError()
+        return
+      }
+
       const archangelExp = this.state.sameType ? 750 : 500
       const vesselExp = 30000
-      let currentExp = (this.state.expTable[this.state.levelFrom + 1] - this.state.expTable[this.state.levelFrom]) - this.state.toNextLevel
-      let totalExperience = this.state.expTable[this.state.levelTo] - this.state.expTable[this.state.levelFrom] - currentExp
+      let currentExperience = 0
+      if (this.state.toNextLevel > 0) {
+        currentExperience = (this.state.experienceTable[this.state.levelFrom + 1]
+          - this.state.experienceTable[this.state.levelFrom]) - this.state.toNextLevel
+      }
+      let totalExperience = this.state.experienceTable[this.state.levelTo]
+        - this.state.experienceTable[this.state.levelFrom] - currentExperience
       if (this.state.expType !== ExperienceTypes.Rank) {
-        let vessels = Math.ceil(totalExperience / (vesselExp + Math.floor(vesselExp * (this.state.bonusExp / 100))))
-        let archangelItems = Math.ceil(totalExperience / (archangelExp + Math.floor(archangelExp * (this.state.bonusExp / 100))))
+        const vessels = getRequiredItemsCount(totalExperience, vesselExp)
+        const archangelItems = getRequiredItemsCount(totalExperience, archangelExp)
         this.setState({ vessels, archangelItems })
       }
       this.setState({ totalExperience })
-    } else {
-      this.setState({ levelFrom: 1, levelTo: 40 })
-    }
+    })
   }
 
   handleInputChange = (e) => {
@@ -86,7 +75,9 @@ class ExperienceCalculator extends React.Component {
   }
 
   handleCheckbox = (e) => {
-    this.setState({ [e.target.name]: e.target.checked })
+    this.setState({ [e.target.name]: e.target.checked }, () => {
+      this.recalculateExperience()
+    })
   }
 
   render() {
@@ -96,7 +87,7 @@ class ExperienceCalculator extends React.Component {
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="levelFrom">{strings.levelFrom}</label>
             <input
-              min="1"
+              min="0"
               max="225"
               type="number"
               className="input-sm form-control"
@@ -108,7 +99,7 @@ class ExperienceCalculator extends React.Component {
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="levelTo">{strings.levelTo}</label>
             <input
-              min="1"
+              min="0"
               max={this.state.maxLevel}
               type="number"
               className="input-sm form-control"
@@ -129,6 +120,7 @@ class ExperienceCalculator extends React.Component {
               value={this.state.toNextLevel}
               onChange={this.handleInputChange} />
           </Col>
+          {/* TODO: add top margin on small screens*/}
           <Col xs="4" md="3" lg="2" className="will-hide" hidden={this.state.expType === ExperienceTypes.Rank}>
             <OverlayTrigger overlay={<Tooltip>{strings.bonusExpInfo}</Tooltip>}>
               <label className="no-wrap" htmlFor="bonusExp">
