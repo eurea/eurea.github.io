@@ -1,4 +1,24 @@
 @import "_colors";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.checkbox-col {
+  display: flex;
+
+  @include media-breakpoint-between(sm, sm) {
+    margin-top: 1rem;
+  }
+}
+
+.will-hide {
+   transition: all .2s ease-in-out;
+
+  &[hidden] {
+    display: initial !important;
+    opacity: 0;
+  }
+}
 
 .radio-tile-group {
   display: flex;
@@ -6,11 +26,30 @@
   justify-content: left;
   padding-left: 15px;
 
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+
   .input-container {
     position: relative;
-    height:  32px;
-    width:  120px;
-    margin: 15px 15px 0 0;
+    height: 32px;
+    width: 120px;
+    margin: 0 15px 0 0;
+
+    &:hover {
+      //TODO: add something
+    }
+
+    @include media-breakpoint-up(sm) {
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 15px;
+      width: 100%;
+    }
 
     .radio-button {
       opacity: 0;
@@ -23,7 +62,6 @@
       cursor: pointer;
     }
 
-    //default tile styles
     .radio-tile {
       display: flex;
       flex-direction: row;

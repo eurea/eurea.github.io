@@ -5,6 +5,8 @@ const japanese = '日本語'
 
 export default new LocalizedStrings({
   en: {
+    english,
+    japanese,
     SparkCalc: 'Spark Calc',
     ExpRpCalc: 'RP&EXP Calc',
     crystals: 'Crystals:',
@@ -20,10 +22,14 @@ export default new LocalizedStrings({
     weaponSummon: 'Weapon/ Summon',
     character: 'Character',
     rank: 'Rank',
-    english,
-    japanese
+    sameType: 'Same type',
+    totalExperience: 'Total Experience:',
+    archangelItems: 'Archangel Items:',
+    vessels: 'Vessels:'
   },
   jp: {
+    english,
+    japanese,
     SparkCalc: '蒼光の御印の計算',
     ExpRpCalc: 'RPとEXPの計算',
     crystals: '宝晶石:',
@@ -39,7 +45,9 @@ export default new LocalizedStrings({
     weaponSummon: '武器/召喚石',
     character: 'キャラ',
     rank: 'Rank',
-    english,
-    japanese
+    sameType: '同じ武器の種類',
+    totalExperience: 'EXPの合計:',
+    archangelItems: 'アークエンジェル:',
+    vessels: '杯:'
   }
 })

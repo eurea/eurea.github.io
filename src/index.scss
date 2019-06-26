@@ -1,6 +1,8 @@
 body {
-  margin: 0;
-  background-image: url("./assets/bg.jpg");
+  background: url("./assets/bg.jpg") no-repeat top center fixed;
+  //background-position-x: center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .tab-pane {
