@@ -198,10 +198,14 @@ class ExperienceCalculator extends React.Component {
             <label htmlFor="sameType" className="m-0 pr-2 no-wrap">{strings.sameType}</label>
             <input
               type="checkbox"
-              name="sameType"
               id="sameType"
+              name="sameType"
+              className="checkbox-input"
               checked={this.state.sameType}
               onChange={this.handleCheckbox} />
+            <label htmlFor="sameType" className="checkbox-label mb-0">
+              <span className="checkbox" />
+            </label>
           </Col>
         </Row>
         <Row className="mt-3">

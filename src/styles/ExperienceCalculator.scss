@@ -102,3 +102,108 @@
     }
   }
 }
+
+.checkbox-label {
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+
+  .checkbox {
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    transform-origin: center;
+    border: 2px solid $accent-blue;
+    border-radius: 4px;
+    vertical-align: -6px;
+    margin-right: 10px;
+    transition: background-color 150ms;
+
+    &:before {
+      content: "";
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: $accent-blue;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 10px;
+      left: 7px;
+      transition: width 50ms ease 50ms;
+      transform-origin: 0 0;
+    }
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: $accent-blue;
+      position: absolute;
+      transform: rotate(305deg);
+      top: 14px;
+      left: 8px;
+      transition: width 50ms ease;
+      transform-origin: 0 0;
+    }
+  }
+
+  &:hover {
+    .checkbox {
+      &:before {
+        width: 5px;
+        transition: width 100ms ease;
+      }
+
+      &:after {
+        width: 10px;
+        transition: width 150ms ease 100ms;
+      }
+    }
+  }
+}
+
+.checkbox-input[type="checkbox"] {
+  display: none;
+
+  &:checked {
+    + .checkbox-label {
+      .checkbox {
+        background-color: $accent-blue;
+
+        &:after {
+          width: 10px;
+          background: #fff;
+          transition: width 150ms ease 100ms;
+        }
+
+        &:before {
+          width: 5px;
+          background: #fff;
+          transition: width 150ms ease 100ms;
+        }
+      }
+
+      &:hover {
+        .checkbox {
+          background-color: $accent-blue;
+
+          &:after {
+            width: 10px;
+            background: #fff;
+            transition: width 150ms ease 100ms;
+          }
+
+          &:before {
+            width: 5px;
+            background: #fff;
+            transition: width 150ms ease 100ms;
+          }
+        }
+      }
+    }
+  }
+}
