@@ -1,6 +1,5 @@
 import React from 'react'
 import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
-// import warning from '../icons/warning.svg'
 import '../styles/ExperienceCalculator.scss'
 import strings from '../helpers/localization'
 import infoIcon from '../icons/info-filled.svg'
@@ -31,32 +30,30 @@ class ExperienceCalculator extends React.Component {
     this.setState({
       ...ExperienceData[this.state.expType]
     }, () => {
+      const { levelFrom, levelTo, sameType, maxLevel, expType, toNextLevel, experienceTable } = this.state
       const getRequiredItemsCount = (totalExperience, itemExperience) => {
         return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (this.state.bonusExp / 100))))
       }
 
-      if (this.state.levelFrom > this.state.maxLevel
-        || this.state.levelTo > this.state.maxLevel) {
+      if (levelFrom > maxLevel || levelTo > maxLevel) {
         this.setState({ showError: true })
         return
       }
 
-      if (this.state.levelFrom > this.state.levelTo) {
+      if (levelFrom > levelTo) {
         this.setState({ showError: true })
         return
       }
 
       this.setState({ showError: false })
-      const archangelExp = this.state.sameType ? 750 : 500
+      const archangelExp = sameType ? 750 : 500
       const vesselExp = 30000
       let currentExperience = 0
-      if (this.state.toNextLevel > 0) {
-        currentExperience = (this.state.experienceTable[this.state.levelFrom + 1]
-          - this.state.experienceTable[this.state.levelFrom]) - this.state.toNextLevel
+      if (toNextLevel > 0) {
+        currentExperience = (experienceTable[levelFrom + 1] - experienceTable[levelFrom]) - toNextLevel
       }
-      const totalExperience = this.state.experienceTable[this.state.levelTo]
-        - this.state.experienceTable[this.state.levelFrom] - currentExperience
-      if (this.state.expType !== ExperienceTypes.Rank) {
+      const totalExperience = experienceTable[levelTo] - experienceTable[levelFrom] - currentExperience
+      if (expType !== ExperienceTypes.Rank) {
         const vessels = getRequiredItemsCount(totalExperience, vesselExp)
         const archangelItems = getRequiredItemsCount(totalExperience, archangelExp)
         this.setState({ vessels, archangelItems })
@@ -124,7 +121,7 @@ class ExperienceCalculator extends React.Component {
               onChange={this.handleInputChange} />
           </Col>
           <Col xs="4" md="3" lg="2" className="will-hide tooltip-col"
-               hidden={this.state.expType === ExperienceTypes.Rank}>
+            hidden={this.state.expType === ExperienceTypes.Rank}>
             <OverlayTrigger overlay={<Tooltip>{strings.bonusExpInfo}</Tooltip>}>
               <label className="no-wrap" htmlFor="bonusExp">
                 <img src={infoIcon} alt="info icon" width="16" /> {strings.bonusExp}
@@ -247,8 +244,8 @@ class ExperienceCalculator extends React.Component {
           </Col>
         </Row>
         <Alert variant="danger" className="mb-0 mt-3" show={this.state.showError}>
-          {/*<img src={warning} alt="warning" width="16" className="mr-1" />*/}
-          <strong className="align-middle">{strings.error}: </strong><span className="align-middle">{strings.cantDowngrade}</span>
+          <strong className="align-middle">{strings.error}: </strong><span
+            className="align-middle">{strings.cantDowngrade}</span>
         </Alert>
       </React.Fragment>
     )
