@@ -1,7 +1,6 @@
 body {
   background: url("./assets/bg.jpg") no-repeat top center fixed;
-  // TODO: fix cover on real mobile
-  //background-position-x: center;
+  background-position-x: center;
   -webkit-background-size: cover;
   background-size: cover;
 }

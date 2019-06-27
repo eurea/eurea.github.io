@@ -1,10 +1,11 @@
 import React from 'react'
 import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
+// import warning from '../icons/warning.svg'
 import '../styles/ExperienceCalculator.scss'
 import strings from '../helpers/localization'
 import infoIcon from '../icons/info-filled.svg'
-import { ExperienceTypes } from '../helpers/constants'
 import { ExperienceData } from '../helpers/constants'
+import { ExperienceTypes } from '../helpers/constants'
 
 class ExperienceCalculator extends React.Component {
   state = {
@@ -122,8 +123,8 @@ class ExperienceCalculator extends React.Component {
               value={this.state.toNextLevel}
               onChange={this.handleInputChange} />
           </Col>
-          {/* TODO: add top margin on small screens*/}
-          <Col xs="4" md="3" lg="2" className="will-hide" hidden={this.state.expType === ExperienceTypes.Rank}>
+          <Col xs="4" md="3" lg="2" className="will-hide tooltip-col"
+               hidden={this.state.expType === ExperienceTypes.Rank}>
             <OverlayTrigger overlay={<Tooltip>{strings.bonusExpInfo}</Tooltip>}>
               <label className="no-wrap" htmlFor="bonusExp">
                 <img src={infoIcon} alt="info icon" width="16" /> {strings.bonusExp}
@@ -246,7 +247,8 @@ class ExperienceCalculator extends React.Component {
           </Col>
         </Row>
         <Alert variant="danger" className="mb-0 mt-3" show={this.state.showError}>
-          <strong>{strings.error}: </strong>{strings.cantDowngrade}
+          {/*<img src={warning} alt="warning" width="16" className="mr-1" />*/}
+          <strong className="align-middle">{strings.error}: </strong><span className="align-middle">{strings.cantDowngrade}</span>
         </Alert>
       </React.Fragment>
     )

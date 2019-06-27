@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import '../styles/Settings.scss'
-import { SET_LANGUAGE } from '../helpers/actions'
-import strings from '../helpers/localization'
-import { English, Japanese } from '../helpers/constants'
 import { Alert } from 'react-bootstrap'
+import '../styles/Settings.scss'
+import strings from '../helpers/localization'
+import { SET_LANGUAGE } from '../helpers/actions'
+import { English, Japanese } from '../helpers/constants'
 
 class Settings extends React.Component {
   handleCheckboxChange = () => {
