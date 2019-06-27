@@ -1,6 +1,6 @@
 import React from 'react'
 import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
-import warning from '../icons/warning.svg'
+// import warning from '../icons/warning.svg'
 import '../styles/ExperienceCalculator.scss'
 import strings from '../helpers/localization'
 import infoIcon from '../icons/info-filled.svg'
@@ -247,7 +247,7 @@ class ExperienceCalculator extends React.Component {
           </Col>
         </Row>
         <Alert variant="danger" className="mb-0 mt-3" show={this.state.showError}>
-          <img src={warning} alt="warning" width="16" className="mr-1" />
+          {/*<img src={warning} alt="warning" width="16" className="mr-1" />*/}
           <strong className="align-middle">{strings.error}: </strong><span className="align-middle">{strings.cantDowngrade}</span>
         </Alert>
       </React.Fragment>
