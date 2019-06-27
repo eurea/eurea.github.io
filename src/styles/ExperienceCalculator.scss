@@ -46,10 +46,6 @@
     width: 120px;
     margin: 0 15px 0 0;
 
-    &:hover {
-      //TODO: add something
-    }
-
     @include media-breakpoint-up(sm) {
       &:last-child {
         margin: 0;
