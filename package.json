@@ -1,7 +1,8 @@
 {
   "name": "gbf-calculator",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
+  "homepage": "https://eurea.github.io",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "node-sass": "^4.12.0",
@@ -14,7 +15,12 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.1"
   },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -b master -d build -m 'Deploy new version'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -32,7 +32,7 @@ class App extends React.Component {
           </Tab>
         </Tabs>
         <GithubCorner
-          href="https://github.com/IAmVisco/gbf-calculator"
+          href="https://github.com/eurea/eurea.github.io"
           bannerColor="#0288D1"
           target="_blank"
           rel="noreferrer" />
