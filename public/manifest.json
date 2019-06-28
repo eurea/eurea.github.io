@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "./?utm_medium=instant_app",
   "display": "standalone",
   "theme_color": "#0288D1",
   "background_color": "#E0E0E0",
