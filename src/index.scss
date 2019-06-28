@@ -1,0 +1,17 @@
+body {
+  background: url("./assets/bg.jpg") no-repeat top center fixed;
+  //background-size: cover;
+}
+
+.tab-pane {
+  padding: 15px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.input-sm {
+  padding: 5px 10px;
+  max-width: 120px;
+}

@@ -1,0 +1,46 @@
+@import "colors";
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #E0E0E0;
+  border-radius: 4px;
+}
+
+.nav-tabs {
+  border-radius: 4px 4px 0 0;
+  background-color: $accent-blue;
+
+  & .nav-item {
+    border: none;
+    margin: 0;
+  }
+}
+
+.nav-tabs .nav-link {
+  position: relative;
+  color: #000;
+  transition: .25s all;
+
+  &:hover {
+    border: none;
+    background-color: white;
+  }
+
+  &::after {
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 2px;
+    bottom: -1px;
+    position: absolute;
+    background: $darker-blue;
+    transform: scale(0, 1);
+    transition: all .25s ease;
+  }
+
+  &.active::after,
+  &:hover::after {
+    transform: scale(1, 1);
+  }
+}
