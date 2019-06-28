@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactGA from 'react-ga'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -25,4 +26,5 @@ const app = (
   </Provider>
 )
 ReactDOM.render(app, document.getElementById('root'))
+ReactGA.initialize('UA-101216558-2', { debug: true })
 serviceWorker.register()

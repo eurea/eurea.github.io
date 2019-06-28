@@ -19,7 +19,7 @@ export default new LocalizedStrings({
     toNextLevel: 'To next level:',
     bonusExp: 'Bonus Exp (%):',
     bonusExpInfo: 'Usually comes from Wonders and Elemental Skills.',
-    weaponSummon: 'Weapon/ Summon',
+    weaponSummon: 'Weapon / Summon',
     character: 'Character',
     rank: 'Rank',
     sameType: 'Same type',

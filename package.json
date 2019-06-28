@@ -9,6 +9,7 @@
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.6.0",
     "react-github-corner": "^2.3.0",
     "react-localization": "^1.0.13",
     "react-redux": "^7.1.0",
@@ -20,7 +21,7 @@
   },
   "scripts": {
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build -m \"Deploy new version\"",
+    "deploy": "gh-pages -b master -d build -m \"Deploy new version\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
