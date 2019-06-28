@@ -1,6 +1,21 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 body {
-  background: url("./assets/bg.jpg") no-repeat top center fixed;
-  //background-size: cover;
+  background: url("./assets/bg.jpg") no-repeat center fixed;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    height: 100vh;
+  }
+
+  body {
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+  }
 }
 
 .tab-pane {
