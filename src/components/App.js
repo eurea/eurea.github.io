@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactGA from 'react-ga'
 import { connect } from 'react-redux'
 import { Tab, Tabs } from 'react-bootstrap'
 import GithubCorner from 'react-github-corner'
@@ -17,10 +18,18 @@ class App extends React.Component {
     }
   }
 
+  handleTabSelect = (tabKey, e) => {
+    ReactGA.event({
+      category: 'Tab switch',
+      action: 'Tab click',
+      label: tabKey
+    })
+  }
+
   render() {
     return (
       <div className="container mt-md-3">
-        <Tabs defaultActiveKey="spark">
+        <Tabs defaultActiveKey="spark" onSelect={this.handleTabSelect}>
           <Tab eventKey="spark" title={strings.SparkCalc}>
             <SparkCalculator language={this.props.languageCode} />
           </Tab>

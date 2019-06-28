@@ -61,7 +61,8 @@
           "before": true,
           "after": true
         }
-      ]
+      ],
+      "prefer-const": "warn"
     }
   },
   "browserslist": {

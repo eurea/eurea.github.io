@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactGA from 'react-ga'
 import { connect } from 'react-redux'
 import { Alert } from 'react-bootstrap'
 import '../styles/Settings.scss'
@@ -8,11 +9,15 @@ import { English, Japanese } from '../helpers/constants'
 
 class Settings extends React.Component {
   handleCheckboxChange = () => {
-    if (this.props.languageCode === English) {
-      this.props.changeLanguage(Japanese)
-    } else {
-      this.props.changeLanguage(English)
-    }
+    const { changeLanguage, languageCode } = this.props
+    const newLanguage = languageCode === English ? Japanese : English
+    
+    changeLanguage(newLanguage)
+    ReactGA.event({
+      category: 'Settings change',
+      action: 'Language change',
+      label: newLanguage
+    })
   }
 
   render() {
