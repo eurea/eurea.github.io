@@ -26,5 +26,5 @@ const app = (
   </Provider>
 )
 ReactDOM.render(app, document.getElementById('root'))
-ReactGA.initialize('UA-101216558-2', { debug: true })
+ReactGA.initialize('UA-101216558-2')
 serviceWorker.register()
