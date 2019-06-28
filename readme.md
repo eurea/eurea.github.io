@@ -1,11 +1,8 @@
-# SITE BROKE COME BACK IN FEW HOURS
-
-
-
-
 # GBF Spark and Experience Calculator
- **A simple calculator for calculating how much fodder you need or how much rolls you have.**
- **Now with PWA features and written with React!**
+**A simple calculator for calculating how much fodder you need or how much rolls you have.**  
+**Now with PWA features and written with React!**
+
+For any questions or issues feel free do drop me a PM on Discord: IAmVisco#7099 or create and issue here, on GitHub.
 
 ### Spark calculator usage
 - Enter you crystals, single tickets and 10x tickets.

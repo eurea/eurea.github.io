@@ -11,7 +11,7 @@ class Settings extends React.Component {
   handleCheckboxChange = () => {
     const { changeLanguage, languageCode } = this.props
     const newLanguage = languageCode === English ? Japanese : English
-    
+
     changeLanguage(newLanguage)
     ReactGA.event({
       category: 'Settings change',
