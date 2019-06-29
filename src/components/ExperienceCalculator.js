@@ -3,8 +3,7 @@ import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 import '../styles/ExperienceCalculator.scss'
 import strings from '../helpers/localization'
 import infoIcon from '../icons/info-filled.svg'
-import { ExperienceData } from '../helpers/constants'
-import { ExperienceTypes } from '../helpers/constants'
+import { ExperienceTables, ExperienceTypes } from '../helpers/constants'
 
 class ExperienceCalculator extends React.Component {
   state = {
@@ -18,8 +17,8 @@ class ExperienceCalculator extends React.Component {
     levelFrom: 1,
     toNextLevel: 0,
     showError: false,
-    maxLevel: ExperienceData[ExperienceTypes.Weapon].maxLevel,
-    experienceTable: ExperienceData[ExperienceTypes.Weapon].experienceTable
+    maxLevel: ExperienceTables[ExperienceTypes.Weapon].length - 1,
+    experienceTable: ExperienceTables[ExperienceTypes.Weapon]
   }
 
   componentDidMount() {
@@ -27,17 +26,18 @@ class ExperienceCalculator extends React.Component {
   }
 
   recalculateExperience = () => {
+    const { levelFrom, levelTo } = this.state
+    const maxLevel = ExperienceTables[this.state.expType].length - 1
+    
     this.setState({
-      ...ExperienceData[this.state.expType]
+      experienceTable: ExperienceTables[this.state.expType],
+      levelFrom: levelFrom > maxLevel ? maxLevel : levelFrom,
+      levelTo: levelTo > maxLevel ? maxLevel : levelTo,
+      maxLevel
     }, () => {
-      const { levelFrom, levelTo, sameType, maxLevel, expType, toNextLevel, experienceTable } = this.state
+      const { bonusExp, experienceTable, expType, levelFrom, levelTo, sameType, toNextLevel } = this.state
       const getRequiredItemsCount = (totalExperience, itemExperience) => {
-        return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (this.state.bonusExp / 100))))
-      }
-
-      if (levelFrom > maxLevel || levelTo > maxLevel) {
-        this.setState({ showError: true })
-        return
+        return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (bonusExp / 100))))
       }
 
       if (levelFrom > levelTo) {
@@ -88,7 +88,7 @@ class ExperienceCalculator extends React.Component {
             <label className="no-wrap" htmlFor="levelFrom">{strings.levelFrom}</label>
             <input
               min="0"
-              max="225"
+              max={this.state.maxLevel}
               type="number"
               className="input-sm form-control"
               id="levelFrom"
