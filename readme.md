@@ -4,20 +4,20 @@
 
 For any questions or issues feel free do drop me a PM on Discord: IAmVisco#7099 or create and issue here, on GitHub.
 
-### Spark calculator usage
-- Enter you crystals, single tickets and 10x tickets.
-- Calculator will display your total rolls and spark completion rate where 100% is 300 rolls.
-- All entered values are saved for future usage on your local device.
+## Spark calculator usage
+  - Enter you crystals, single tickets and 10x tickets.
+  - Calculator will display your total rolls and spark completion rate where 100% is 300 rolls.
+  - All entered values are saved for future usage on your local device.
 
-### Experience calculator usage
-- Input the current level of your weapon/summon/character and your target level to see the total exp needed.
-- The calculator will display the needed Vessels **OR** Archangel Items to reach the target level.
-- Note that the calculator will always give the base weapons needed (i.e. Total exp is 1001: given that bonus exp is 0%, Archangel Weapons will display 3.)
+## Experience calculator usage
+  - Input the current level of your weapon/summon/character and your target level to see the total exp needed.
+  - The calculator will display the needed Vessels **OR** Archangel Items to reach the target level.
+  - Note that the calculator will always give the base weapons needed (i.e. Total exp is 1001: given that bonus exp is 0%, Archangel Weapons will display 3.)
 
-### Team
-- [Eurea](https://github.com/eurea) coding
-- [Visco](https://github.com/IAmVisco) idea and coding
+## Team
+  - [Eurea](https://github.com/eurea) coding
+  - [Visco](https://github.com/IAmVisco) idea and coding
 
 ### Special Thanks
-- Faust721 for helping with JP translation
-- [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view and JP translation
+  - Faust721 for helping with JP translation
+  - [Dark_zarich](https://github.com/Darkzarich) for helping with the mobile view and JP translation
