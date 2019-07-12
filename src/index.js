@@ -27,4 +27,5 @@ const app = (
 )
 ReactDOM.render(app, document.getElementById('root'))
 ReactGA.initialize('UA-101216558-2')
+ReactGA.pageview(window.location.pathname)
 serviceWorker.register()

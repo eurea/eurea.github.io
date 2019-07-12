@@ -18,12 +18,8 @@ class App extends React.Component {
     }
   }
 
-  handleTabSelect = (tabKey, e) => {
-    ReactGA.event({
-      category: 'Tab switch',
-      action: 'Tab click',
-      label: tabKey
-    })
+  handleTabSelect = (tabKey) => {
+    ReactGA.modalview(tabKey)
   }
 
   render() {
