@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./?utm_source=instant_app",
+  "start_url": "./?utm_source=instant_app&utm_medium=mobile&utm_campaign=pwa",
   "display": "standalone",
   "theme_color": "#0288D1",
   "background_color": "#E0E0E0",
