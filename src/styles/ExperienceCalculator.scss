@@ -30,6 +30,10 @@
   }
 }
 
+.disable-ff-shadow {
+  box-shadow: none;
+}
+
 .radio-tile-group {
   display: flex;
   flex-wrap: wrap;

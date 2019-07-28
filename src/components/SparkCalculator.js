@@ -57,7 +57,7 @@ class SparkCalculator extends React.Component {
               step="100"
               max="999999"
               type="number"
-              className="input-sm form-control"
+              className="input-sm form-control disable-ff-shadow"
               id="crystals"
               name="crystals"
               defaultValue={this.state.crystals}
