@@ -26,9 +26,14 @@ class ExperienceCalculator extends React.Component {
   }
 
   recalculateExperience = () => {
-    const { levelFrom, levelTo } = this.state
+    const { levelFrom } = this.state
+    let { levelTo } = this.state
     const maxLevel = ExperienceTables[this.state.expType].length - 1
-    
+
+    if (levelFrom > levelTo) {
+      levelTo = levelFrom
+    }
+
     this.setState({
       experienceTable: ExperienceTables[this.state.expType],
       levelFrom: levelFrom > maxLevel ? maxLevel : levelFrom,
@@ -40,25 +45,23 @@ class ExperienceCalculator extends React.Component {
         return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (bonusExp / 100))))
       }
 
-      if (levelFrom > levelTo) {
-        this.setState({ showError: true })
-        return
-      }
-
-      this.setState({ showError: false })
+      // this.setState({ showError: false })
       const archangelExp = sameType ? 750 : 500
       const vesselExp = 30000
       let currentExperience = 0
+      let archangelItems = 0
       if (toNextLevel > 0) {
         currentExperience = (experienceTable[levelFrom + 1] - experienceTable[levelFrom]) - toNextLevel
       }
       const totalExperience = experienceTable[levelTo] - experienceTable[levelFrom] - currentExperience
       if (expType !== ExperienceTypes.Rank) {
         const vessels = getRequiredItemsCount(totalExperience, vesselExp)
-        const archangelItems = getRequiredItemsCount(totalExperience, archangelExp)
-        this.setState({ vessels, archangelItems })
+        archangelItems = getRequiredItemsCount(totalExperience, archangelExp)
+        this.setState({ vessels })
+      } else {
+        archangelItems = (experienceTable[levelFrom] / experienceTable[experienceTable.length - 1] * 100).toFixed(2)
       }
-      this.setState({ totalExperience })
+      this.setState({ archangelItems, totalExperience })
     })
   }
 
@@ -220,8 +223,10 @@ class ExperienceCalculator extends React.Component {
               value={this.state.totalExperience}
               onChange={this.handleChange} />
           </Col>
-          <Col xs="4" md="3" lg="2" className="will-hide" hidden={this.state.expType === ExperienceTypes.Rank}>
-            <label className="no-wrap" htmlFor="archangelItems">{strings.archangelItems}</label>
+          <Col xs="4" md="3" lg="2">
+            <label className="no-wrap" htmlFor="archangelItems">
+              {this.state.expType !== ExperienceTypes.Rank ? strings.archangelItems : strings.rpPercentage }
+            </label>
             <input
               disabled
               type="number"
