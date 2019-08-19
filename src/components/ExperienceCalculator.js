@@ -26,13 +26,8 @@ class ExperienceCalculator extends React.Component {
   }
 
   recalculateExperience = () => {
-    const { levelFrom } = this.state
-    let { levelTo } = this.state
+    const { levelFrom, levelTo } = this.state
     const maxLevel = ExperienceTables[this.state.expType].length - 1
-
-    if (levelFrom > levelTo) {
-      levelTo = levelFrom
-    }
 
     this.setState({
       experienceTable: ExperienceTables[this.state.expType],
@@ -41,15 +36,20 @@ class ExperienceCalculator extends React.Component {
       maxLevel
     }, () => {
       const { bonusExp, experienceTable, expType, levelFrom, levelTo, sameType, toNextLevel } = this.state
-      const getRequiredItemsCount = (totalExperience, itemExperience) => {
-        return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (bonusExp / 100))))
-      }
-
-      // this.setState({ showError: false })
       const archangelExp = sameType ? 750 : 500
       const vesselExp = 30000
       let currentExperience = 0
       let archangelItems = 0
+
+      const getRequiredItemsCount = (totalExperience, itemExperience) => {
+        return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (bonusExp / 100))))
+      }
+
+      if (levelFrom > levelTo) {
+        this.setState({ showError: true })
+        return
+      }
+      this.setState({ showError: false })
       if (toNextLevel > 0) {
         currentExperience = (experienceTable[levelFrom + 1] - experienceTable[levelFrom]) - toNextLevel
       }
@@ -124,7 +124,7 @@ class ExperienceCalculator extends React.Component {
               onChange={this.handleInputChange} />
           </Col>
           <Col xs="4" md="3" lg="2" className="will-hide tooltip-col"
-            hidden={this.state.expType === ExperienceTypes.Rank}>
+               hidden={this.state.expType === ExperienceTypes.Rank}>
             <OverlayTrigger overlay={<Tooltip>{strings.bonusExpInfo}</Tooltip>}>
               <label className="no-wrap" htmlFor="bonusExp">
                 <img src={infoIcon} alt="info icon" width="16" /> {strings.bonusExp}
@@ -225,7 +225,7 @@ class ExperienceCalculator extends React.Component {
           </Col>
           <Col xs="4" md="3" lg="2">
             <label className="no-wrap" htmlFor="archangelItems">
-              {this.state.expType !== ExperienceTypes.Rank ? strings.archangelItems : strings.rpPercentage }
+              {this.state.expType !== ExperienceTypes.Rank ? strings.archangelItems : strings.rpPercentage}
             </label>
             <input
               disabled
@@ -250,7 +250,7 @@ class ExperienceCalculator extends React.Component {
         </Row>
         <Alert variant="danger" className="mb-0 mt-3" show={this.state.showError}>
           <strong className="align-middle">{strings.error}: </strong><span
-            className="align-middle">{strings.cantDowngrade}</span>
+          className="align-middle">{strings.cantDowngrade}</span>
         </Alert>
       </React.Fragment>
     )
