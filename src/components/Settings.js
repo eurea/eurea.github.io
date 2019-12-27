@@ -1,18 +1,20 @@
 import React from 'react'
 import ReactGA from 'react-ga'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Alert } from 'react-bootstrap'
 import '../styles/Settings.scss'
 import strings from '../helpers/localization'
 import { SET_LANGUAGE } from '../helpers/actions'
 import { English, Japanese } from '../helpers/constants'
 
-class Settings extends React.Component {
-  handleCheckboxChange = () => {
-    const { changeLanguage, languageCode } = this.props
+const Settings = () => {
+  const dispatch = useDispatch()
+  const languageCode = useSelector(state => state.languageCode)
+
+  const handleCheckboxChange = () => {
     const newLanguage = languageCode === English ? Japanese : English
 
-    changeLanguage(newLanguage)
+    dispatch({ type: SET_LANGUAGE, payload: newLanguage })
     ReactGA.event({
       category: 'Settings change',
       action: 'Language change',
@@ -20,30 +22,24 @@ class Settings extends React.Component {
     })
   }
 
-  render() {
-    return (
-      <>
-        <label className='language-label'>{strings.english}&nbsp;</label>
-        <label className='switch'>
-          <input
-            type='checkbox'
-            id='languageSwitch'
-            onChange={this.handleCheckboxChange}
-            checked={this.props.languageCode === Japanese}
-          />
-          <span className='slider' />
-        </label>
-        <label className='language-label'>&nbsp;{strings.japanese}</label>
-        <Alert variant='info' className='mb-0 mt-3'>
-          {strings.suggestionsWelcomed}
-        </Alert>
-      </>
-    )
-  }
+  return (
+    <>
+      <label className='language-label'>{strings.english}&nbsp;</label>
+      <label className='switch'>
+        <input
+          type='checkbox'
+          id='languageSwitch'
+          onChange={handleCheckboxChange}
+          checked={languageCode === Japanese}
+        />
+        <span className='slider' />
+      </label>
+      <label className='language-label'>&nbsp;{strings.japanese}</label>
+      <Alert variant='info' className='mb-0 mt-3'>
+        {strings.suggestionsWelcomed}
+      </Alert>
+    </>
+  )
 }
 
-export default connect((state) => ({
-  languageCode: state.languageCode
-}), (dispatch) => ({
-  changeLanguage: (language) => dispatch({ type: SET_LANGUAGE, payload: language })
-}))(Settings)
+export default Settings
