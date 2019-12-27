@@ -4,20 +4,27 @@
   "private": true,
   "homepage": "https://eurea.github.io",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "node-sass": "^4.12.0",
+    "bootstrap": "^4.4.1",
     "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.9",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.8.6",
-    "react-ga": "^2.6.0",
+    "react-ga": "^2.7.0",
     "react-github-corner": "^2.3.0",
     "react-localization": "^1.0.13",
     "react-redux": "^7.1.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.3.0",
     "redux": "^4.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.1.1",
+    "node-sass": "^4.13.0"
   },
   "scripts": {
     "predeploy": "yarn build",
@@ -28,41 +35,17 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": [
-      "react-app",
-      "plugin:jsx-a11y/recommended"
+      "standard",
+      "standard-react"
     ],
-    "plugins": [
-      "jsx-a11y"
-    ],
+    "globals": {
+      "localStorage": true
+    },
     "rules": {
-      "quotes": [
-        "warn",
-        "single"
-      ],
-      "indent": [
-        "warn",
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "semi": [
-        "warn",
-        "never"
-      ],
-      "object-curly-spacing": [
-        "warn",
-        "always"
-      ],
-      "arrow-spacing": [
-        "warn",
-        {
-          "before": true,
-          "after": true
-        }
-      ],
-      "prefer-const": "warn"
+      "react/prop-types": "off",
+      "space-before-function-paren": "off"
     }
   },
   "browserslist": {

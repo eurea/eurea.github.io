@@ -24,23 +24,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container mt-md-3">
-        <Tabs defaultActiveKey="spark" onSelect={this.handleTabSelect}>
-          <Tab eventKey="spark" title={strings.SparkCalc}>
+      <div className='container mt-md-3'>
+        <Tabs id='menu-tabs' defaultActiveKey='spark' onSelect={this.handleTabSelect}>
+          <Tab eventKey='spark' title={strings.SparkCalc}>
             <SparkCalculator language={this.props.languageCode} />
           </Tab>
-          <Tab eventKey="exp" title={strings.ExpRpCalc}>
+          <Tab eventKey='exp' title={strings.ExpRpCalc}>
             <ExperienceCalculator language={this.props.languageCode} />
           </Tab>
-          <Tab eventKey="settings" title="Settings/設定">
+          <Tab eventKey='settings' title='Settings/設定'>
             <Settings />
           </Tab>
         </Tabs>
         <GithubCorner
-          href="https://github.com/eurea/eurea.github.io"
-          bannerColor="#0288D1"
-          target="_blank"
-          rel="noreferrer" />
+          href='https://github.com/eurea/eurea.github.io'
+          bannerColor='#0288D1'
+          target='_blank'
+          rel='noreferrer'
+        />
       </div>
     )
   }

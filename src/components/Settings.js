@@ -22,21 +22,22 @@ class Settings extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <label className="language-label">{strings.english}&nbsp;</label>
-        <label className="switch">
+      <>
+        <label className='language-label'>{strings.english}&nbsp;</label>
+        <label className='switch'>
           <input
-            type="checkbox"
-            id="languageSwitch"
+            type='checkbox'
+            id='languageSwitch'
             onChange={this.handleCheckboxChange}
-            checked={this.props.languageCode === Japanese} />
-          <span className="slider" />
+            checked={this.props.languageCode === Japanese}
+          />
+          <span className='slider' />
         </label>
-        <label className="language-label">&nbsp;{strings.japanese}</label>
-        <Alert variant="info" className="mb-0 mt-3">
+        <label className='language-label'>&nbsp;{strings.japanese}</label>
+        <Alert variant='info' className='mb-0 mt-3'>
           {strings.suggestionsWelcomed}
         </Alert>
-      </React.Fragment>
+      </>
     )
   }
 }
