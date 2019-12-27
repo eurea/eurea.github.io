@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactGA from 'react-ga'
-import { useSelector, useDispatch } from 'react-redux'
 import { Alert } from 'react-bootstrap'
+import { useSelector, useDispatch } from 'react-redux'
 import '../styles/Settings.scss'
-import strings from '../helpers/localization'
 import { SET_LANGUAGE } from '../actions'
+import strings from '../helpers/localization'
 import { English, Japanese } from '../helpers/constants'
 
 const Settings = () => {
