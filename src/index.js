@@ -6,16 +6,27 @@ import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
 import 'bootstrap/scss/bootstrap.scss'
 import './index.scss'
-import getDefaultState from './helpers/dataMigration'
-import App from './components/App'
+import { getDefaultState, parseQueryParams, isBookmarklet } from './helpers'
+import App from './App'
 import rootReducer from './reducers'
 
-const persistedState = localStorage.getItem('reduxState')
-  ? JSON.parse(localStorage.getItem('reduxState'))
-  : getDefaultState()
+const params = window.location.search
+let persistedState
+
+if (isBookmarklet(params)) {
+  persistedState = parseQueryParams(params)
+} else if ('reduxState' in localStorage) {
+  persistedState = JSON.parse(localStorage.getItem('reduxState'))
+} else {
+  persistedState = getDefaultState()
+}
+
 const store = createStore(rootReducer,
-  persistedState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  persistedState
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 store.subscribe(() => {
   localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 })

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Alert } from 'react-bootstrap'
 import '../styles/Settings.scss'
 import strings from '../helpers/localization'
-import { SET_LANGUAGE } from '../helpers/actions'
+import { SET_LANGUAGE } from '../actions'
 import { English, Japanese } from '../helpers/constants'
 
 const Settings = () => {

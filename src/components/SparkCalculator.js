@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
 import strings from '../helpers/localization'
-import { SET_SPARK_DATA } from '../helpers/actions'
+import { SET_SPARK_DATA } from '../actions'
 
 class SparkCalculator extends React.Component {
   state = {
@@ -39,7 +39,10 @@ class SparkCalculator extends React.Component {
 
   recalculateRolls = () => {
     const { crystals, singleTickets, grandTickets } = this.state
-    const totalRolls = (parseInt(crystals, 10) / 300) + parseInt(singleTickets, 10) + (parseInt(grandTickets, 10) * 10)
+    const totalRolls = ((parseInt(crystals, 10) / 300) +
+      parseInt(singleTickets, 10) +
+      (parseInt(grandTickets, 10) * 10)
+    ).toFixed()
     const percentage = ~~(totalRolls / 300 * 100) + '%'
     this.setState({ totalRolls, percentage })
   }

@@ -1,4 +1,4 @@
-import { SET_SPARK_DATA, SET_LANGUAGE } from '../helpers/actions'
+import { SET_SPARK_DATA, SET_LANGUAGE } from '../actions'
 import strings from '../helpers/localization'
 
 export default function (state = {}, action) {

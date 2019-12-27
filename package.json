@@ -5,6 +5,7 @@
   "homepage": "https://eurea.github.io",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "query-string": "^6.9.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.8.6",
@@ -24,7 +25,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.1.1",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.0",
+    "standard": "^14.3.1"
   },
   "scripts": {
     "predeploy": "yarn build",
