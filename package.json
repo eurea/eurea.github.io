@@ -46,7 +46,6 @@
       "localStorage": true
     },
     "rules": {
-      "react/prop-types": "off",
       "space-before-function-paren": "off"
     }
   },
@@ -61,5 +60,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=10.*",
+    "yarn": "1.*"
   }
 }
