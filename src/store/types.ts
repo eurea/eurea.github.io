@@ -13,8 +13,8 @@ interface SetLanguageAction {
 export type ActionTypes = SetSparkAction | SetLanguageAction
 
 export interface RootState {
-  languageCode?: string,
-  crystals?: string,
-  singleTickets?: string
-  grandTickets?: string
+  languageCode: string,
+  crystals: string,
+  singleTickets: string
+  grandTickets: string
 }

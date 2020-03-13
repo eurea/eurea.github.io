@@ -4,21 +4,20 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
-import 'bootstrap/scss/bootstrap.scss'
+import 'bootstrap/scss/bootstrap-grid.scss.scss'
 import './index.scss'
-import { getDefaultState, parseQueryParams, isBookmarklet } from './helpers'
 import App from './App'
+import { parseQueryParams, isBookmarklet } from './helpers'
 import rootReducer from './store/reducers'
+import { RootState } from './store/types'
 
 let preloadedState
 const params = window.location.search
 
 if (isBookmarklet(params)) {
-  preloadedState = parseQueryParams(params)
+  preloadedState = parseQueryParams(params) as RootState
 } else if ('reduxState' in localStorage) {
-  preloadedState = JSON.parse(localStorage.getItem('reduxState') || '')
-} else {
-  preloadedState = getDefaultState()
+  preloadedState = JSON.parse(localStorage.getItem('reduxState') || '') as RootState
 }
 
 const store = createStore(rootReducer, preloadedState)

@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
 import strings from '../helpers/localization'
 import { SET_SPARK_DATA } from '../store/actions'
+import { RootState } from '../store/types'
 
 const SparkCalculator = () => {
   const dispatch = useDispatch()
-  const { crystals, singleTickets, grandTickets } = useSelector(state => ({
+  const { crystals, singleTickets, grandTickets } = useSelector((state: RootState) => ({
     crystals: state.crystals,
     singleTickets: state.singleTickets,
     grandTickets: state.grandTickets
@@ -15,20 +16,20 @@ const SparkCalculator = () => {
   const [percentage, setPercentage] = useState('')
 
   useEffect(() => {
-    const totalRolls = (
+    const totalRolls = ~~(
       (parseInt(crystals, 10) / 300) +
       parseInt(singleTickets, 10) +
       (parseInt(grandTickets, 10) * 10)
-    ).toFixed()
+    )
     setTotalRolls(totalRolls.toString())
     setPercentage(`${~~(totalRolls / 300 * 100)}%`)
   }, [crystals, singleTickets, grandTickets])
 
-  const handleFieldClick = (e) => {
-    e.target.select()
+  const handleFieldClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    (e.target as HTMLInputElement).select()
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: SET_SPARK_DATA,
       payload: { [e.target.name]: e.target.value }
