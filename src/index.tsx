@@ -10,21 +10,18 @@ import { getDefaultState, parseQueryParams, isBookmarklet } from './helpers'
 import App from './App'
 import rootReducer from './store/reducers'
 
+let preloadedState
 const params = window.location.search
-let persistedState
 
 if (isBookmarklet(params)) {
-  persistedState = parseQueryParams(params)
+  preloadedState = parseQueryParams(params)
 } else if ('reduxState' in localStorage) {
-  persistedState = JSON.parse(localStorage.getItem('reduxState') || '')
+  preloadedState = JSON.parse(localStorage.getItem('reduxState') || '')
 } else {
-  persistedState = getDefaultState()
+  preloadedState = getDefaultState()
 }
 
-const store = createStore(rootReducer,
-  persistedState
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const store = createStore(rootReducer, preloadedState)
 
 localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 store.subscribe(() => {
