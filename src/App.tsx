@@ -28,10 +28,10 @@ const App: React.FC = () => {
     <div className='container mt-md-3'>
       <Tabs id='menu-tabs' defaultActiveKey='spark' onSelect={handleTabSelect}>
         <Tab eventKey='spark' title={strings.SparkCalc}>
-          <SparkCalculator language={languageCode} />
+          <SparkCalculator />
         </Tab>
         <Tab eventKey='exp' title={strings.ExpRpCalc}>
-          <ExperienceCalculator language={languageCode} />
+          <ExperienceCalculator />
         </Tab>
         <Tab eventKey='settings' title='Settings/設定'>
           <Settings />
