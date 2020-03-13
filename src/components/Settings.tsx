@@ -3,13 +3,14 @@ import ReactGA from 'react-ga'
 import { Alert } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import '../styles/Settings.scss'
+import { RootState } from '../store/types'
 import { SET_LANGUAGE } from '../store/actions'
 import strings from '../helpers/localization'
 import { English, Japanese } from '../helpers/constants'
 
-const Settings = () => {
+const Settings: React.FC = () => {
   const dispatch = useDispatch()
-  const languageCode = useSelector(state => state.languageCode)
+  const languageCode = useSelector((state: RootState) => state.languageCode)
 
   const handleCheckboxChange = () => {
     const newLanguage = languageCode === English ? Japanese : English

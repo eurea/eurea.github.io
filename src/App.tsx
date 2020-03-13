@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as ReactGA from 'react-ga'
+import React from 'react'
+import ReactGA from 'react-ga'
 import { Tab, Tabs } from 'react-bootstrap'
 import GithubCorner from 'react-github-corner'
 import { useSelector, useDispatch } from 'react-redux'
