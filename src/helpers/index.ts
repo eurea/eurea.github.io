@@ -1,9 +1,9 @@
 import queryString from 'query-string'
 
-export const isBookmarklet = (params) =>
+export const isBookmarklet = (params: string): boolean =>
   params.includes('crystals') || params.includes('singleTickets') || params.includes('grandTickets')
 
-export const parseQueryParams = (params) => {
+export const parseQueryParams = (params: string) => {
   const { crystals, singleTickets, grandTickets } = queryString.parse(params)
   const newState = {
     languageCode: localStorage.getItem('lang') || 'en',

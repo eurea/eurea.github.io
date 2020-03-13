@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
 import strings from '../helpers/localization'
-import { SET_SPARK_DATA } from '../actions'
+import { SET_SPARK_DATA } from '../store/actions'
 
 class SparkCalculator extends React.Component {
   state = {

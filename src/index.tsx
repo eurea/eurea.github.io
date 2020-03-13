@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactGA from 'react-ga'
-import ReactDOM from 'react-dom'
+import * as React from 'react'
+import * as ReactGA from 'react-ga'
+import * as ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
@@ -8,7 +8,7 @@ import 'bootstrap/scss/bootstrap.scss'
 import './index.scss'
 import { getDefaultState, parseQueryParams, isBookmarklet } from './helpers'
 import App from './App'
-import rootReducer from './reducers'
+import rootReducer from './store/reducers'
 
 const params = window.location.search
 let persistedState
@@ -16,7 +16,7 @@ let persistedState
 if (isBookmarklet(params)) {
   persistedState = parseQueryParams(params)
 } else if ('reduxState' in localStorage) {
-  persistedState = JSON.parse(localStorage.getItem('reduxState'))
+  persistedState = JSON.parse(localStorage.getItem('reduxState') || '')
 } else {
   persistedState = getDefaultState()
 }

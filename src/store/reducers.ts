@@ -1,7 +1,8 @@
-import { SET_SPARK_DATA, SET_LANGUAGE } from '../actions'
+import { SET_SPARK_DATA, SET_LANGUAGE } from './actions'
+import { ActionTypes, RootState } from './types'
 import strings from '../helpers/localization'
 
-export default function (state = {}, action) {
+export default function (state: RootState = {}, action: ActionTypes) {
   switch (action.type) {
     case SET_SPARK_DATA: {
       return {

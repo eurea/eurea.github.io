@@ -3,7 +3,7 @@ import ReactGA from 'react-ga'
 import { Alert } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import '../styles/Settings.scss'
-import { SET_LANGUAGE } from '../actions'
+import { SET_LANGUAGE } from '../store/actions'
 import strings from '../helpers/localization'
 import { English, Japanese } from '../helpers/constants'
 

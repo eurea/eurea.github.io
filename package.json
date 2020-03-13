@@ -1,9 +1,12 @@
 {
   "name": "gbf-calculator",
-  "version": "2.1.0",
+  "version": "3.0.0-alpha",
   "private": true,
   "homepage": "https://eurea.github.io",
   "dependencies": {
+    "@types/node": "^13.9.1",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
     "bootstrap": "^4.4.1",
     "query-string": "^6.11.1",
     "react": "^16.13.0",
@@ -14,19 +17,24 @@
     "react-localization": "^1.0.13",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.7",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
     "node-sass": "^4.13.1",
-    "standard": "^14.3.1"
+    "standardx": "^5.0.0"
   },
   "scripts": {
     "predeploy": "yarn build",
@@ -37,17 +45,24 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
     "extends": [
       "standard",
       "standard-react"
     ],
     "globals": {
-      "localStorage": true
+      "localStorage": true,
+      "fetch": true
     },
     "rules": {
-      "space-before-function-paren": "off"
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
     }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
   },
   "browserslist": {
     "production": [
@@ -62,7 +77,7 @@
     ]
   },
   "engines": {
-    "node": ">=10.*",
+    "node": ">=12.*",
     "yarn": "1.*"
   }
 }
