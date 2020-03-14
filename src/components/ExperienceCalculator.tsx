@@ -5,7 +5,7 @@ import strings from '../helpers/localization'
 import infoIcon from '../assets/info-filled.svg'
 import { ExperienceTables, ExperienceTypes } from '../helpers/constants'
 
-const ExperienceCalculator = () => {
+const ExperienceCalculator: React.FC = () => {
   const [levelFrom, setLevelFrom] = useState(1)
   const [levelTo, setLevelTo] = useState(40)
   const [toNextLevel, setToNextLevel] = useState(0)
@@ -31,9 +31,8 @@ const ExperienceCalculator = () => {
     const archangelExp = sameType ? 750 : 500
     const vesselExp = 30000
     let currentExperience = 0
-    let archangelItems = 0
 
-    const getRequiredItemsCount = (totalExperience, itemExperience) => {
+    const getRequiredItemsCount = (totalExperience: number, itemExperience: number): number => {
       return Math.ceil(totalExperience / (itemExperience + Math.floor(itemExperience * (bonusExp / 100))))
     }
 
@@ -48,16 +47,15 @@ const ExperienceCalculator = () => {
     const totalExperience = experienceTable[levelTo] - experienceTable[levelFrom] - currentExperience
     if (expType !== ExperienceTypes.Rank) {
       const vessels = getRequiredItemsCount(totalExperience, vesselExp)
-      archangelItems = getRequiredItemsCount(totalExperience, archangelExp)
+      setArchangelItems(getRequiredItemsCount(totalExperience, archangelExp).toString())
       setVessels(vessels)
     } else {
-      archangelItems = (experienceTable[levelFrom] / experienceTable[experienceTable.length - 1] * 100).toFixed(2)
+      setArchangelItems((experienceTable[levelFrom] / experienceTable[experienceTable.length - 1] * 100).toFixed(2))
     }
-    setArchangelItems(archangelItems.toString())
     setTotalExperience(totalExperience)
   }, [levelFrom, levelTo, toNextLevel, bonusExp, expType, sameType, experienceTable, maxLevel])
 
-  const handleExperienceTypeChange = (e) => {
+  const handleExperienceTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setExpType(e.target.value)
   }
 
