@@ -4,37 +4,36 @@
   "private": true,
   "homepage": "https://eurea.github.io",
   "dependencies": {
-    "@types/node": "^13.9.1",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
-    "bootstrap": "^4.4.1",
-    "query-string": "^6.11.1",
-    "react": "^16.13.0",
+    "bootstrap": "^4.6.0",
+    "query-string": "^7.0.1",
+    "react": "^17.0.2",
     "react-bootstrap": "^1.0.0-beta.17",
-    "react-dom": "^16.13.0",
-    "react-ga": "^2.7.0",
+    "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
     "react-github-corner": "^2.3.0",
     "react-localization": "^1.0.13",
     "react-redux": "^7.2.0",
-    "react-scripts": "3.4.0",
+    "react-scripts": "^4.0.3",
     "redux": "^4.0.1",
-    "typescript": "^3.8.3"
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
+    "@types/node": "^16.7.1",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
     "@types/react-redux": "^7.1.7",
-    "@typescript-eslint/eslint-plugin": "^2.23.0",
-    "@typescript-eslint/parser": "^2.23.0",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-react": "^11.0.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.1",
-    "standardx": "^5.0.0"
+    "eslint-plugin-standard": "^5.0.0",
+    "sass": "^1.38.1",
+    "standardx": "^7.0.0"
   },
   "scripts": {
     "predeploy": "yarn build",
@@ -46,6 +45,7 @@
   },
   "eslintConfig": {
     "extends": [
+      "react-app",
       "standard",
       "standard-react"
     ],
@@ -55,7 +55,7 @@
     },
     "rules": {
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error"
+      "no-use-before-define": "off"
     }
   },
   "standardx": {
@@ -75,9 +75,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "engines": {
-    "node": ">=12.*",
-    "yarn": "1.*"
   }
 }

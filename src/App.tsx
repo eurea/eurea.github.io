@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactGA from 'react-ga'
 import { Tab, Tabs } from 'react-bootstrap'
 import GithubCorner from 'react-github-corner'
 import { useSelector, useDispatch } from 'react-redux'
@@ -20,13 +19,9 @@ const App: React.FC = () => {
     dispatch({ type: SET_LANGUAGE, payload: Japanese })
   }
 
-  const handleTabSelect = (tabKey: string) => {
-    ReactGA.modalview(tabKey)
-  }
-
   return (
     <div className='container mt-md-3'>
-      <Tabs id='menu-tabs' defaultActiveKey='spark' onSelect={handleTabSelect}>
+      <Tabs id='menu-tabs' defaultActiveKey='spark'>
         <Tab eventKey='spark' title={strings.SparkCalc}>
           <SparkCalculator />
         </Tab>
@@ -40,7 +35,6 @@ const App: React.FC = () => {
       <GithubCorner
         href='https://github.com/eurea/eurea.github.io'
         bannerColor='#0288D1'
-        // @ts-ignore
         target='_blank'
         rel='noreferrer'
       />
