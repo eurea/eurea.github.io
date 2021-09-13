@@ -3,7 +3,7 @@ import strings from '../helpers/localization';
 import { SET_LANGUAGE, SET_SPARK_DATA } from './actions';
 import { ActionTypes, RootState } from './types';
 
-export default function (state: RootState = getDefaultState(), action: ActionTypes) {
+export default (state: RootState = getDefaultState(), action: ActionTypes) => {
   switch (action.type) {
     case SET_SPARK_DATA: {
       return {
@@ -22,4 +22,4 @@ export default function (state: RootState = getDefaultState(), action: ActionTyp
       return state;
     }
   }
-}
+};
