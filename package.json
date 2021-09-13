@@ -1,32 +1,39 @@
 {
   "name": "gbf-calculator",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "private": true,
   "homepage": "https://eurea.github.io",
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "query-string": "^6.9.0",
-    "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.16",
-    "react-dom": "^16.8.6",
-    "react-ga": "^2.7.0",
+    "bootstrap": "^4.6.0",
+    "query-string": "^7.0.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
     "react-github-corner": "^2.3.0",
     "react-localization": "^1.0.13",
-    "react-redux": "^7.1.0",
-    "react-scripts": "3.3.0",
-    "redux": "^4.0.1"
+    "react-redux": "^7.2.0",
+    "react-scripts": "^4.0.3",
+    "redux": "^4.0.1",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.1.1",
-    "node-sass": "^4.13.0",
-    "standard": "^14.3.1"
+    "@types/node": "^16.7.1",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-redux": "^7.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.4.0",
+    "sass": "^1.38.1"
   },
   "scripts": {
     "predeploy": "yarn build",
@@ -37,17 +44,23 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
     "extends": [
-      "standard",
-      "standard-react"
+      "airbnb",
+      "airbnb/hooks",
+      "airbnb-typescript",
+      "prettier"
     ],
-    "globals": {
-      "localStorage": true
+    "parserOptions": {
+      "project": "./tsconfig.json"
     },
-    "rules": {
-      "space-before-function-paren": "off"
+    "globals": {
+      "localStorage": true,
+      "fetch": true
     }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
   },
   "browserslist": {
     "production": [
@@ -60,9 +73,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "engines": {
-    "node": ">=10.*",
-    "yarn": "1.*"
   }
 }
