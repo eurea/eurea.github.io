@@ -25,7 +25,7 @@ export default new LocalizedStrings({
     sameType: 'Same type',
     totalExperience: 'Total Experience:',
     archangelItems: 'Archangel Items:',
-    rpPercentage: 'Total RP %:',
+    rpPercentage: 'Total RP, %:',
     vessels: 'Vessels:',
     error: 'Error',
     cantDowngrade: 'You cannot downgrade weapons/summons/characters.',

@@ -1,5 +1,5 @@
 # GBF Spark and Experience Calculator
-**A simple calculator for calculating how much fodder you need or how much rolls you have.**  
+**A simple calculator for calculating how much fodder you need or how many rolls you have.**  
 **Now with PWA features!**
 
 ## Spark calculator usage
@@ -14,7 +14,7 @@ Spark calculator supports quick game info import using bookmarklet, get the code
   - The calculator will display the needed Vessels **OR** Archangel Items to reach the target level.
   - Note that the calculator will always give the base weapons needed (i.e. Total Experience is 1001: given that bonus experience is 0%, Archangel Weapons will display 3.)
 
-For any questions or issues feel free to drop me a PM on Discord: `IAmVisco#7099` or create and issue here, on GitHub.
+For any questions or issues feel free to drop me a DM on Discord: `IAmVisco#7099` or create an issue here, on GitHub.
 
 ## Team
   - [Eurea](https://github.com/eurea) coding

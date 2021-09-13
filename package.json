@@ -1,6 +1,6 @@
 {
   "name": "gbf-calculator",
-  "version": "3.0.0-alpha",
+  "version": "3.0.0",
   "private": true,
   "homepage": "https://eurea.github.io",
   "dependencies": {
