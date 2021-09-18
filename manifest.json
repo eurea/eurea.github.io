@@ -1,0 +1,21 @@
+{
+  "short_name": "GBF Calculator",
+  "name": "Granblue Fantasy Spark and Experience calculator",
+  "icons": [
+    {
+      "src": "icon-256.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./?utm_source=instant_app&utm_medium=mobile&utm_campaign=pwa",
+  "display": "standalone",
+  "theme_color": "#0288D1",
+  "background_color": "#E0E0E0",
+  "orientation": "portrait"
+}
