@@ -1,10 +1,11 @@
 import LocalizedStrings from 'react-localization';
+import { Language } from './constants';
 
 const english = 'English';
 const japanese = '日本語';
 
-export default new LocalizedStrings({
-  en: {
+export const strings = new LocalizedStrings({
+  [Language.English]: {
     english,
     japanese,
     SparkCalc: 'Spark Calc',
@@ -29,9 +30,9 @@ export default new LocalizedStrings({
     vessels: 'Vessels:',
     error: 'Error',
     cantDowngrade: 'You cannot downgrade weapons/summons/characters.',
-    suggestionsWelcomed: 'If you have any suggestions or ideas, contact me on Discord: IAmVisco#7099',
+    suggestionsWelcomed: 'If you have any suggestions or ideas, contact me on Discord: @IAmVisco',
   },
-  jp: {
+  [Language.Japanese]: {
     english,
     japanese,
     SparkCalc: '蒼光の御印の計算',
@@ -56,6 +57,6 @@ export default new LocalizedStrings({
     vessels: '杯:',
     error: 'エラー',
     cantDowngrade: '武器/召喚石/キャラを下がらない',
-    suggestionsWelcomed: '何か考えと助言があれば私にDiscord：IAmVisco＃7099で連絡してください',
+    suggestionsWelcomed: '何かの考えや助言があれば僕にDiscord: @IAmViscoでお気軽に連絡してください',
   },
 });

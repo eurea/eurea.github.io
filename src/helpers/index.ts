@@ -1,16 +1,16 @@
 import queryString from 'query-string';
-import { RootState } from '../store/types';
+import { SparkState } from '../types';
 
-export const isBookmarklet = (params: string): boolean => params.includes('crystals') || params.includes('singleTickets') || params.includes('grandTickets');
+export const isBookmarklet = (params: string): boolean =>
+  params.includes('crystals') || params.includes('singleTickets') || params.includes('grandTickets');
 
-// TODO: query string parses arrays, and I have no idea how to pass type check here
-export const parseQueryParams = (params: string): any => {
-  const { crystals, singleTickets, grandTickets } = queryString.parse(params);
+export const parseQueryParams = (params: string): SparkState => {
+  const { crystals, singleTickets, grandTickets } = queryString.parse(params) as Record<string, string | null>;
   const newState = {
-    languageCode: localStorage.getItem('lang') || 'en',
-    crystals: crystals || '0',
-    singleTickets: singleTickets || '0',
-    grandTickets: grandTickets || '0',
+    languageCode: localStorage.getItem('lang') ?? 'en',
+    crystals: crystals ? parseInt(crystals, 10) : 0,
+    singleTickets: singleTickets ? parseInt(singleTickets, 10) : 0,
+    grandTickets: grandTickets ? parseInt(grandTickets, 10) : 0,
   };
 
   localStorage.clear();
@@ -18,15 +18,13 @@ export const parseQueryParams = (params: string): any => {
   return newState;
 };
 
-export const getDefaultState = (): RootState => {
+export const getDefaultState = (): SparkState => {
   const newState = {
-    languageCode: localStorage.getItem('lang') || 'en',
-    crystals: localStorage.getItem('crystals') || '0',
-    singleTickets: localStorage.getItem('singles') || '0',
-    grandTickets: localStorage.getItem('tens') || '0',
+    languageCode: localStorage.getItem('lang') ?? 'en',
+    crystals: parseInt(localStorage.getItem('crystals') as string, 10) || 0,
+    singleTickets: parseInt(localStorage.getItem('singleTickets') as string, 10) || 0,
+    grandTickets: parseInt(localStorage.getItem('grandTickets') as string, 10) || 0,
   };
-
-  localStorage.clear();
 
   return newState;
 };

@@ -1,22 +1,21 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
-import ReactGA from 'react-ga';
-import { useDispatch, useSelector } from 'react-redux';
-import { English, Japanese } from '../helpers/constants';
-import strings from '../helpers/localization';
-import { SET_LANGUAGE } from '../store/actions';
-import { RootState } from '../store/types';
+import ReactGA from 'react-ga4';
+import { Language } from '../helpers/constants';
+import { strings } from '../helpers/localization';
+import { setLanguage } from '../slices/sparkSlice';
+import { useAppDispatch, useAppSelector } from '../store';
 import '../styles/Settings.scss';
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
-const Settings: React.FC = () => {
-  const dispatch = useDispatch();
-  const languageCode = useSelector((state: RootState) => state.languageCode);
+export const Settings: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const languageCode = useAppSelector((state) => state.spark.languageCode);
 
   const handleCheckboxChange = () => {
-    const newLanguage = languageCode === English ? Japanese : English;
+    const newLanguage = languageCode === Language.English ? Language.Japanese : Language.English;
 
-    dispatch({ type: SET_LANGUAGE, payload: newLanguage });
+    dispatch(setLanguage(newLanguage));
     ReactGA.event({
       category: 'Settings change',
       action: 'Language change',
@@ -35,7 +34,7 @@ const Settings: React.FC = () => {
           type="checkbox"
           id="languageSwitch"
           onChange={handleCheckboxChange}
-          checked={languageCode === Japanese}
+          checked={languageCode === Language.Japanese}
         />
         <span className="slider" />
       </label>
@@ -49,5 +48,3 @@ const Settings: React.FC = () => {
     </>
   );
 };
-
-export default Settings;

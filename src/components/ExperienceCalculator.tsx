@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
-import infoIcon from '../assets/info-filled.svg';
-import { ExperienceTables, ExperienceTypes } from '../helpers/constants';
-import strings from '../helpers/localization';
+
+import { ExperienceTables, ExperienceType } from '../helpers/constants';
+import { strings } from '../helpers/localization';
 import '../styles/ExperienceCalculator.scss';
 
-const ExperienceCalculator: React.FC = () => {
+const VESSEL_EXP = 30000;
+
+export const ExperienceCalculator: React.FC = () => {
   const [levelFrom, setLevelFrom] = useState(1);
   const [levelTo, setLevelTo] = useState(40);
   const [toNextLevel, setToNextLevel] = useState(0);
   const [bonusExp, setBonusExp] = useState(10);
 
-  const [expType, setExpType] = useState(ExperienceTypes.Weapon);
+  const [expType, setExpType] = useState(ExperienceType.Weapon);
   const [sameType, setSameType] = useState(false);
 
   const [totalExperienceValue, setTotalExperienceValue] = useState(0);
-  const [archangelItemsValue, setArchangelItemsValue] = useState('0');
+  const [archangelItemsValue, setArchangelItemsValue] = useState(0);
   const [vesselsValue, setVesselsValue] = useState(0);
 
   const [showError, setShowError] = useState(false);
-  const [maxLevel, setMaxLevel] = useState(ExperienceTables[ExperienceTypes.Weapon].length - 1);
-  const [experienceTable, setExperienceTable] = useState(ExperienceTables[ExperienceTypes.Weapon]);
+  const [maxLevel, setMaxLevel] = useState(ExperienceTables[ExperienceType.Weapon].length - 1);
+  const [experienceTable, setExperienceTable] = useState(ExperienceTables[ExperienceType.Weapon]);
+  const archangelExp = sameType ? 750 : 500;
 
   useEffect(() => {
     setMaxLevel(ExperienceTables[expType].length - 1);
@@ -28,8 +31,6 @@ const ExperienceCalculator: React.FC = () => {
     setLevelFrom(levelFrom > maxLevel ? maxLevel : levelFrom);
     setLevelTo(levelTo > maxLevel ? maxLevel : levelTo);
 
-    const archangelExp = sameType ? 750 : 500;
-    const vesselExp = 30000;
     let currentExperience = 0;
 
     const getRequiredItemsCount = (totalExperience: number, itemExperience: number): number =>
@@ -44,20 +45,18 @@ const ExperienceCalculator: React.FC = () => {
       currentExperience = experienceTable[levelFrom + 1] - experienceTable[levelFrom] - toNextLevel;
     }
     const totalExperience = experienceTable[levelTo] - experienceTable[levelFrom] - currentExperience;
-    if (expType !== ExperienceTypes.Rank) {
-      const vessels = getRequiredItemsCount(totalExperience, vesselExp);
-      setArchangelItemsValue(getRequiredItemsCount(totalExperience, archangelExp).toString());
+    if (expType !== ExperienceType.Rank) {
+      const vessels = getRequiredItemsCount(totalExperience, VESSEL_EXP);
+      setArchangelItemsValue(getRequiredItemsCount(totalExperience, archangelExp));
       setVesselsValue(vessels);
     } else {
-      setArchangelItemsValue(
-        ((experienceTable[levelFrom] / experienceTable[experienceTable.length - 1]) * 100).toFixed(2)
-      );
+      setArchangelItemsValue((experienceTable[levelFrom] / experienceTable[experienceTable.length - 1]) * 100);
     }
     setTotalExperienceValue(totalExperience);
-  }, [levelFrom, levelTo, toNextLevel, bonusExp, expType, sameType, experienceTable, maxLevel]);
+  }, [levelFrom, levelTo, toNextLevel, bonusExp, expType, sameType, experienceTable, maxLevel, archangelExp]);
 
   const handleExperienceTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setExpType(e.target.value);
+    setExpType(e.target.value as ExperienceType);
   };
 
   return (
@@ -108,10 +107,10 @@ const ExperienceCalculator: React.FC = () => {
             onChange={(e) => setToNextLevel(parseInt(e.target.value, 10))}
           />
         </Col>
-        <Col xs="4" md="3" lg="2" className="will-hide tooltip-col" hidden={expType === ExperienceTypes.Rank}>
+        <Col xs="4" md="3" lg="2" className="will-hide tooltip-col" hidden={expType === ExperienceType.Rank}>
           <OverlayTrigger overlay={<Tooltip id="bonus-info-tooltip">{strings.bonusExpInfo}</Tooltip>}>
             <label className="no-wrap" htmlFor="bonusExp">
-              <img src={infoIcon} alt="info icon" width="16" /> {strings.bonusExp}
+              <span>ⓘ</span> {strings.bonusExp}
             </label>
           </OverlayTrigger>
           <input
@@ -133,8 +132,8 @@ const ExperienceCalculator: React.FC = () => {
               type="radio"
               name="expType"
               className="radio-button"
-              value={ExperienceTypes.Weapon}
-              checked={expType === ExperienceTypes.Weapon}
+              value={ExperienceType.Weapon}
+              checked={expType === ExperienceType.Weapon}
               onChange={handleExperienceTypeChange}
             />
             <div className="radio-tile">
@@ -149,8 +148,8 @@ const ExperienceCalculator: React.FC = () => {
               type="radio"
               name="expType"
               className="radio-button"
-              value={ExperienceTypes.Character}
-              checked={expType === ExperienceTypes.Character}
+              value={ExperienceType.Character}
+              checked={expType === ExperienceType.Character}
               onChange={handleExperienceTypeChange}
             />
             <div className="radio-tile">
@@ -165,8 +164,8 @@ const ExperienceCalculator: React.FC = () => {
               type="radio"
               name="expType"
               className="radio-button"
-              value={ExperienceTypes.Rank}
-              checked={expType === ExperienceTypes.Rank}
+              value={ExperienceType.Rank}
+              checked={expType === ExperienceType.Rank}
               onChange={handleExperienceTypeChange}
             />
             <div className="radio-tile">
@@ -176,7 +175,7 @@ const ExperienceCalculator: React.FC = () => {
             </div>
           </div>
         </div>
-        <Col md="2" className="align-items-center checkbox-col will-hide" hidden={expType === ExperienceTypes.Rank}>
+        <Col md="2" className="align-items-center checkbox-col will-hide" hidden={expType === ExperienceType.Rank}>
           <label htmlFor="sameType" className="m-0 pr-2 no-wrap">
             {strings.sameType}
           </label>
@@ -201,16 +200,16 @@ const ExperienceCalculator: React.FC = () => {
           </label>
           <input
             disabled
-            type="number"
+            type="text"
             id="totalExperience"
             name="totalExperience"
             className="input-sm form-control"
-            value={totalExperienceValue}
+            value={totalExperienceValue.toLocaleString()}
           />
         </Col>
         <Col xs="4" md="3" lg="2">
           <label className="no-wrap" htmlFor="archangelItems">
-            {expType !== ExperienceTypes.Rank ? strings.archangelItems : strings.rpPercentage}
+            {expType !== ExperienceType.Rank ? strings.archangelItems : strings.rpPercentage}
           </label>
           <input
             disabled
@@ -218,10 +217,10 @@ const ExperienceCalculator: React.FC = () => {
             id="archangelItems"
             name="archangelItems"
             className="input-sm form-control"
-            value={archangelItemsValue}
+            value={archangelItemsValue.toLocaleString()}
           />
         </Col>
-        <Col xs="4" md="3" lg="2" className="will-hide" hidden={expType === ExperienceTypes.Rank}>
+        <Col xs="4" md="3" lg="2" className="will-hide" hidden={expType === ExperienceType.Rank}>
           <label className="no-wrap" htmlFor="vessels">
             {strings.vessels}
           </label>
@@ -242,5 +241,3 @@ const ExperienceCalculator: React.FC = () => {
     </>
   );
 };
-
-export default ExperienceCalculator;

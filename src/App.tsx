@@ -1,27 +1,27 @@
 import React from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import GithubCorner from 'react-github-corner';
-import { useDispatch, useSelector } from 'react-redux';
-import ExperienceCalculator from './components/ExperienceCalculator';
-import Settings from './components/Settings';
-import SparkCalculator from './components/SparkCalculator';
-import { Japanese } from './helpers/constants';
-import strings from './helpers/localization';
-import { SET_LANGUAGE } from './store/actions';
-import { RootState } from './store/types';
+import { ExperienceCalculator } from './components/ExperienceCalculator';
+import { Settings } from './components/Settings';
+import { SparkCalculator } from './components/SparkCalculator';
+import { Language } from './helpers/constants';
+import { strings } from './helpers/localization';
+
 import './styles/App.scss';
+import { setLanguage } from './slices/sparkSlice';
+import { useAppDispatch, useAppSelector } from './store';
 
-const App: React.FC = () => {
-  const dispatch = useDispatch();
-  const languageCode = useSelector((state: RootState) => state.languageCode);
+export const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const languageCode = useAppSelector((state) => state.spark.languageCode);
 
-  if (languageCode === Japanese) {
-    dispatch({ type: SET_LANGUAGE, payload: Japanese });
+  if (languageCode === Language.Japanese) {
+    dispatch(setLanguage(Language.Japanese));
   }
 
   return (
     <div className="container mt-md-3">
-      <Tabs id="menu-tabs" defaultActiveKey="spark">
+      <Tabs id="menu-tabs" defaultActiveKey="spark" unmountOnExit>
         <Tab eventKey="spark" title={strings.SparkCalc}>
           <SparkCalculator />
         </Tab>
@@ -41,5 +41,3 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-export default App;
