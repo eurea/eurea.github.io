@@ -4,7 +4,6 @@ import ReactGA from 'react-ga4';
 import { Provider } from 'react-redux';
 import { App } from './App';
 import './index.scss';
-import * as serviceWorker from './serviceWorker';
 import { store } from './store';
 
 localStorage.setItem('reduxState', JSON.stringify(store.getState()));
@@ -18,4 +17,3 @@ createRoot(document.getElementById('root')!).render(
   </Provider>,
 );
 ReactGA.initialize('UA-101216558-2');
-serviceWorker.register();

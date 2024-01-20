@@ -43,7 +43,9 @@
     "prettier": "^3.2.4",
     "sass": "~1.64.2",
     "typescript": "^5.3.3",
-    "vite": "^5.0.11"
+    "vite": "^5.0.11",
+    "vite-plugin-mkcert": "^1.17.3",
+    "vite-plugin-pwa": "^0.17.4"
   },
   "eslintConfig": {
     "extends": [
