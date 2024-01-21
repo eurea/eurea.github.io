@@ -16,4 +16,4 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </Provider>,
 );
-ReactGA.initialize('UA-101216558-2');
+ReactGA.initialize('G-7TTRZ7GPVQ');
