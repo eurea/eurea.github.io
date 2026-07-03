@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import { Alert, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 
 import { ExperienceTables, ExperienceType } from '../helpers/constants';
@@ -53,7 +54,7 @@ export const ExperienceCalculator: React.FC = () => {
       setArchangelItemsValue((experienceTable[levelFrom] / experienceTable[experienceTable.length - 1]) * 100);
     }
     setTotalExperienceValue(totalExperience);
-  }, [levelFrom, levelTo, toNextLevel, bonusExp, expType, sameType, experienceTable, maxLevel, archangelExp]);
+  }, [levelFrom, levelTo, toNextLevel, bonusExp, expType, experienceTable, maxLevel, archangelExp]);
 
   const handleExperienceTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setExpType(e.target.value as ExperienceType);
@@ -187,7 +188,6 @@ export const ExperienceCalculator: React.FC = () => {
             checked={sameType}
             onChange={(e) => setSameType(e.target.checked)}
           />
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="sameType" className="checkbox-label mb-0">
             <span className="checkbox" />
           </label>

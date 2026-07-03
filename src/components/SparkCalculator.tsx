@@ -1,5 +1,5 @@
-/* eslint-disable no-bitwise */
-import React, { useEffect, useState } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { strings } from '../helpers/localization';

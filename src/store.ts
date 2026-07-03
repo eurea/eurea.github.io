@@ -1,5 +1,5 @@
 import { configureStore, createSelector } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { sparkSlice } from './slices/sparkSlice';
 
 export const store = configureStore({

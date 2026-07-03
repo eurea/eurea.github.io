@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Alert } from 'react-bootstrap';
 import ReactGA from 'react-ga4';
 import { Language } from '../helpers/constants';
@@ -7,7 +7,6 @@ import { setLanguage } from '../slices/sparkSlice';
 import { useAppDispatch, useAppSelector } from '../store';
 import '../styles/Settings.scss';
 
-/* eslint-disable jsx-a11y/label-has-associated-control */
 export const Settings: React.FC = () => {
   const dispatch = useAppDispatch();
   const languageCode = useAppSelector((state) => state.spark.languageCode);
@@ -25,10 +24,10 @@ export const Settings: React.FC = () => {
 
   return (
     <>
-      <label className="language-label">
+      <span className="language-label">
         {strings.english}
         &nbsp;
-      </label>
+      </span>
       <label className="switch">
         <input
           type="checkbox"
@@ -38,10 +37,10 @@ export const Settings: React.FC = () => {
         />
         <span className="slider" />
       </label>
-      <label className="language-label">
+      <span className="language-label">
         &nbsp;
         {strings.japanese}
-      </label>
+      </span>
       <Alert variant="info" className="mb-0 mt-3">
         {strings.suggestionsWelcomed}
       </Alert>

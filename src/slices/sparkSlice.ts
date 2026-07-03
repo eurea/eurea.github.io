@@ -1,9 +1,7 @@
-/* eslint-disable no-param-reassign */
-
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { getDefaultState, isBookmarklet, parseQueryParams } from '../helpers';
 import { strings } from '../helpers/localization';
-import { SparkState } from '../types';
+import type { SparkState } from '../types';
 
 let initialState = getDefaultState();
 const params = window.location.search;

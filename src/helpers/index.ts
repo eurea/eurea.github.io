@@ -1,5 +1,5 @@
 import queryString from 'query-string';
-import { SparkState } from '../types';
+import type { SparkState } from '../types';
 
 export const isBookmarklet = (params: string): boolean =>
   params.includes('crystals') || params.includes('singleTickets') || params.includes('grandTickets');
