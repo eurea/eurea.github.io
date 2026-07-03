@@ -3,18 +3,17 @@ import { Alert } from 'react-bootstrap';
 import ReactGA from 'react-ga4';
 import { Language } from '../helpers/constants';
 import { strings } from '../helpers/localization';
-import { setLanguage } from '../slices/sparkSlice';
-import { useAppDispatch, useAppSelector } from '../store';
+import { useStore } from '../store';
 import '../styles/Settings.scss';
 
 export const Settings: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const languageCode = useAppSelector((state) => state.spark.languageCode);
+  const languageCode = useStore((s) => s.languageCode);
+  const setLanguage = useStore((s) => s.setLanguage);
 
   const handleCheckboxChange = () => {
     const newLanguage = languageCode === Language.English ? Language.Japanese : Language.English;
 
-    dispatch(setLanguage(newLanguage));
+    setLanguage(newLanguage);
     ReactGA.event({
       category: 'Settings change',
       action: 'Language change',

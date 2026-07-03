@@ -1,14 +1,14 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
 import { strings } from '../helpers/localization';
-import { setSparkData } from '../slices/sparkSlice';
-import { selectSparkState, useAppSelector } from '../store';
+import { useStore } from '../store';
 
 export const SparkCalculator: React.FC = () => {
-  const dispatch = useDispatch();
-  const { crystals, singleTickets, grandTickets } = useAppSelector((state) => selectSparkState(state));
+  const crystals = useStore((s) => s.crystals);
+  const singleTickets = useStore((s) => s.singleTickets);
+  const grandTickets = useStore((s) => s.grandTickets);
+  const setSparkData = useStore((s) => s.setSparkData);
   const [totalRollsValue, setTotalRollsValue] = useState(0);
   const [percentageValue, setPercentageValue] = useState(0);
 
@@ -23,7 +23,7 @@ export const SparkCalculator: React.FC = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSparkData({ [e.target.name]: parseInt(e.target.value, 10) }));
+    setSparkData({ [e.target.name]: parseInt(e.target.value, 10) });
   };
 
   return (

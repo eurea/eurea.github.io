@@ -8,15 +8,14 @@ import { Language } from './helpers/constants';
 import { strings } from './helpers/localization';
 
 import './styles/App.scss';
-import { setLanguage } from './slices/sparkSlice';
-import { useAppDispatch, useAppSelector } from './store';
+import { useStore } from './store';
 
 export const App: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const languageCode = useAppSelector((state) => state.spark.languageCode);
+  const languageCode = useStore((s) => s.languageCode);
+  const setLanguage = useStore((s) => s.setLanguage);
 
   if (languageCode === Language.Japanese) {
-    dispatch(setLanguage(Language.Japanese));
+    setLanguage(Language.Japanese);
   }
 
   return (
