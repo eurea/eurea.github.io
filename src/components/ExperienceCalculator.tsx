@@ -6,7 +6,7 @@ import { ExperienceTables, ExperienceType } from '../helpers/constants';
 import { strings } from '../helpers/localization';
 import '../styles/ExperienceCalculator.scss';
 
-const VESSEL_EXP = 30000;
+const VESSEL_EXP = 10_000;
 
 export const ExperienceCalculator: React.FC = () => {
   const [levelFrom, setLevelFrom] = useState(1);
