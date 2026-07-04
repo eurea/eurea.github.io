@@ -1,7 +1,7 @@
 import type React from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
-import GithubCorner from 'react-github-corner';
 import { ExperienceCalculator } from './components/ExperienceCalculator';
+import { GithubCorner } from './components/GithubCorner';
 import { Settings } from './components/Settings';
 import { SparkCalculator } from './components/SparkCalculator';
 import { Language } from './helpers/constants';

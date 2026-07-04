@@ -18,7 +18,7 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.7",
     "react-ga4": "^3.0.1",
-    "react-github-corner": "^2.5.0",
+
     "react-localization": "^2.0.6",
     "zustand": "^5.0.14"
   },

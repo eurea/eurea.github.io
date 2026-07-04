@@ -11,7 +11,6 @@
         "react-bootstrap": "^2.10.10",
         "react-dom": "^19.2.7",
         "react-ga4": "^3.0.1",
-        "react-github-corner": "^2.5.0",
         "react-localization": "^2.0.6",
         "zustand": "^5.0.14",
       },
@@ -845,8 +844,6 @@
     "react-dom": ["react-dom@19.2.7", "", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.7" } }, "sha512-t0BRVXvbiE/o20Hfw669rLbMCDWtYZLvmJigy2f0MxsXF+71pxhR3xOkspmsO8h3ZlNzyibAmtCa3l4lYKk6gQ=="],
 
     "react-ga4": ["react-ga4@3.0.1", "", {}, "sha512-GyCc01bSheWXjzGDyHsXMOqk/SP5Cf/JrcJTg4hcpKx4eeSwaJKpJUc+ipF4ffLTZkmabmf3ZGBv4OKHTXNXyA=="],
-
-    "react-github-corner": ["react-github-corner@2.5.0", "", { "peerDependencies": { "react": "*" } }, "sha512-ofds9l6n61LJc6ML+jSE6W9ZSQvATcMR9evnHPXua1oDYj289HKODnVqFUB/g2a4ieBjDHw416iHP3MjqnU76Q=="],
 
     "react-is": ["react-is@16.13.1", "", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 

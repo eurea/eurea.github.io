@@ -200,10 +200,10 @@ export const ExperienceCalculator: React.FC = () => {
         </div>
         <Col
           md="2"
-          className="align-items-center checkbox-col will-hide"
+          className="align-items-center checkbox-col will-hide ps-1"
           hidden={expType === ExperienceType.Rank || expType === ExperienceType.OriginClass}
         >
-          <label htmlFor="sameType" className="m-0 pr-2 no-wrap">
+          <label htmlFor="sameType" className="m-0 pe-2 no-wrap">
             {strings.sameType}
           </label>
           <input

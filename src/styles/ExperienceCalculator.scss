@@ -38,9 +38,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  padding-left: 15px;
+  width: inherit;
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(md) {
     width: 100%;
   }
 
@@ -50,13 +50,13 @@
     width: 128px;
     margin: 0 15px 0 0;
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(md) {
       &:last-child {
         margin: 0;
       }
     }
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(md) {
       margin-bottom: 15px;
       width: 100%;
     }
