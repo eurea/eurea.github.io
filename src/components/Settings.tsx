@@ -17,29 +17,31 @@ export const Settings: React.FC = () => {
     ReactGA.event({
       category: 'Settings change',
       action: 'Language change',
-      label: newLanguage,
+      label: newLanguage
     });
   };
 
   return (
     <>
+      <div className="d-flex">
       <span className="language-label">
         {strings.english}
         &nbsp;
       </span>
-      <label className="switch">
-        <input
-          type="checkbox"
-          id="languageSwitch"
-          onChange={handleCheckboxChange}
-          checked={languageCode === Language.Japanese}
-        />
-        <span className="slider" />
-      </label>
-      <span className="language-label">
+        <label className="switch mx-1" style={{ marginTop: '2px' }} htmlFor="languageSwitch">
+          <input
+            type="checkbox"
+            id="languageSwitch"
+            onChange={handleCheckboxChange}
+            checked={languageCode === Language.Japanese}
+          />
+          <span className="slider" />
+        </label>
+        <span className="language-label">
         &nbsp;
-        {strings.japanese}
+          {strings.japanese}
       </span>
+      </div>
       <Alert variant="info" className="mb-0 mt-3">
         {strings.suggestionsWelcomed}
       </Alert>
