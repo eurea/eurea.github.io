@@ -46,11 +46,11 @@ export const ExperienceCalculator: React.FC = () => {
       currentExperience = experienceTable[levelFrom + 1] - experienceTable[levelFrom] - toNextLevel;
     }
     const totalExperience = experienceTable[levelTo] - experienceTable[levelFrom] - currentExperience;
-    if (expType !== ExperienceType.Rank) {
+    if (expType !== ExperienceType.Rank && expType !== ExperienceType.OriginClass) {
       const vessels = getRequiredItemsCount(totalExperience, VESSEL_EXP);
       setArchangelItemsValue(getRequiredItemsCount(totalExperience, archangelExp));
       setVesselsValue(vessels);
-    } else {
+    } else if (expType === ExperienceType.Rank) {
       setArchangelItemsValue((experienceTable[levelFrom] / experienceTable[experienceTable.length - 1]) * 100);
     }
     setTotalExperienceValue(totalExperience);
@@ -108,7 +108,13 @@ export const ExperienceCalculator: React.FC = () => {
             onChange={(e) => setToNextLevel(parseInt(e.target.value, 10))}
           />
         </Col>
-        <Col xs="4" md="3" lg="2" className="will-hide tooltip-col" hidden={expType === ExperienceType.Rank}>
+        <Col
+          xs="4"
+          md="3"
+          lg="2"
+          className="will-hide tooltip-col"
+          hidden={expType === ExperienceType.Rank || expType === ExperienceType.OriginClass}
+        >
           <OverlayTrigger overlay={<Tooltip id="bonus-info-tooltip">{strings.bonusExpInfo}</Tooltip>}>
             <label className="no-wrap" htmlFor="bonusExp">
               <span>ⓘ</span> {strings.bonusExp}
@@ -175,8 +181,28 @@ export const ExperienceCalculator: React.FC = () => {
               </label>
             </div>
           </div>
+          <div className="input-container">
+            <input
+              id="originClassExperience"
+              type="radio"
+              name="expType"
+              className="radio-button"
+              value={ExperienceType.OriginClass}
+              checked={expType === ExperienceType.OriginClass}
+              onChange={handleExperienceTypeChange}
+            />
+            <div className="radio-tile">
+              <label htmlFor="originClassExperience" className="radio-tile-label">
+                {strings.originClass}
+              </label>
+            </div>
+          </div>
         </div>
-        <Col md="2" className="align-items-center checkbox-col will-hide" hidden={expType === ExperienceType.Rank}>
+        <Col
+          md="2"
+          className="align-items-center checkbox-col will-hide"
+          hidden={expType === ExperienceType.Rank || expType === ExperienceType.OriginClass}
+        >
           <label htmlFor="sameType" className="m-0 pr-2 no-wrap">
             {strings.sameType}
           </label>
@@ -207,7 +233,7 @@ export const ExperienceCalculator: React.FC = () => {
             value={totalExperienceValue.toLocaleString()}
           />
         </Col>
-        <Col xs="4" md="3" lg="2">
+        <Col xs="4" md="3" lg="2" className="will-hide" hidden={expType === ExperienceType.OriginClass}>
           <label className="no-wrap" htmlFor="archangelItems">
             {expType !== ExperienceType.Rank ? strings.archangelItems : strings.rpPercentage}
           </label>
@@ -220,7 +246,13 @@ export const ExperienceCalculator: React.FC = () => {
             value={archangelItemsValue.toLocaleString()}
           />
         </Col>
-        <Col xs="4" md="3" lg="2" className="will-hide" hidden={expType === ExperienceType.Rank}>
+        <Col
+          xs="4"
+          md="3"
+          lg="2"
+          className="will-hide"
+          hidden={expType === ExperienceType.Rank || expType === ExperienceType.OriginClass}
+        >
           <label className="no-wrap" htmlFor="vessels">
             {strings.vessels}
           </label>
